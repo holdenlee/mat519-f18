@@ -1,0 +1,73 @@
+\def\filepath{templates}
+%\def\filepath{C:/Users/holden-lee/Dropbox/Math/templates}
+
+\input{\filepath/packages_book.tex}
+\input{\filepath/theorems_with_boxes.tex}
+\input{\filepath/macros.tex}
+\input{\filepath/formatting.tex}
+\input{\filepath/other.tex}
+\input{\filepath/theorem_num.tex}
+
+%\newcommand{\Bin}{\operatorname{Bin}}
+\def\name{Ratner's Theorems and Homogeneous Dynamics}
+
+
+\pagestyle{fancy}
+%\addtolength{\headwidth}{\marginparsep} %these change header-rule width
+%\addtolength{\headwidth}{\marginparwidth}
+\lhead{MAT519}
+\chead{} 
+\rhead{Ratner's Theorems} 
+\lfoot{} 
+\cfoot{\thepage} 
+\rfoot{} % !! Remember to change the problem set number
+\renewcommand{\headrulewidth}{.3pt} 
+%\renewcommand{\footrulewidth}{.3pt}
+\setlength\voffset{0in}
+%\setlength\textheight{648pt}
+
+\begin{document}
+%\input{\filepath/titlepage.tex}
+%\maketitle
+\title{Ratner's Theorems and Homogeneous Dynamics}
+\author{Lectures by Professor Ilya Khayutin\\ Scribe: Holden Lee}
+\maketitle
+
+
+\tableofcontents
+
+%\startcontents
+%\printcontents{ }{-1}{}
+
+\chapter*{Introduction}
+
+We will use the book \url{http://tbward0.wixsite.com/books/homogeneous}.
+
+We'll use theorems from representation theory, ergodic theory, and Lie groups. We'll state what we need, with specific examples.
+
+%submit 5 exercises in each half of the semester.
+
+%khayutin@princeton.edu
+
+%Princeton, 
+
+%\setcounter{chapter}{1}
+
+\input{9-13.tex}
+\input{9-17.tex}
+\input{9-20.tex}
+\input{9-25.tex}
+\input{9-27.tex}
+\input{10-2.tex}
+%INSERT_HERE
+
+
+%\appendix
+%\input{distribution_chapters/a.tex}
+
+%\bibliographystyle{plain}
+%\bibliography{\filepath/refs}
+
+\printnomenclature
+\printindex
+\end{document}

@@ -1,0 +1,288 @@
+\blu{9/20}
+
+Let $G$ be a locally compact, $\si$-compact group, $d:G\times G\to \R$ be a left-invariant metric, and $\Ga\le G$ be discrete. 
+
+%character abused. can also be trace function. can be distribution
+\begin{df}
+If $m_R$ is a right-invariant measure on $G$ then 
+\begin{align}
+m_R(gB) &= \bmod_G(g) m_R(B)\\
+\bmod_G:& G\to \R_{>0}.
+\end{align}
+is the \vocab{modular character}.
+\end{df}
+
+\begin{pr}
+If $G$ admits a lattice $\Ga$, then $\bmod_G\equiv 1$.
+\end{pr}
+We proved this with Poincar\'e recurrence; here's another proof using dynamics.
+%lcag
+%left - inverse
+%pushforward
+\begin{proof}
+If $\Ga \sub \ker(\bmod)$, then we have maps
+\begin{align}
+G\to \Ga\bs G \to \ker(\bmod) \bs G \xra{\bmod} \R_{>0}
+%\Ga\bs G, m_X right G-invariant
+\end{align}
+Recall that if we have a measurable map $(X, \cal X, \mu) \xra{\pi} (Y, \cal Y)$, the push-forward $\pi_*\mu$ on $(Y, \cal Y)$ is defined by 
+\begin{align}
+\pi_{*}\mu(A)& = \mu(\pi^{-1}(A)).
+\end{align}
+The push-forward of $m_*$ from $\Ga\bs G$ to $H\bs G$, for $H:=\ker \bmod$, is a $G$-invariant finite measure. Thus $H\bs G$ has a finite Haar measure, and $H\bs G$ is compact. 
+
+$\mod$ is a continuous homomorphism $H\bs G\xra{\bmod}\R_{>0}$. $m$ is a finite Haar measure on $H\bs G$. We have
+\begin{align}
+0<\int_{H\bs G} \bmod(Hg) \,dm(Hg)<\iy
+\end{align}
+%each elt equidistributes
+For all $g\in G$, 
+\begin{align}
+\rc N \sumz n{N-1}\bmod(g^n) \xra{N\to \iy} \int \bmod \pat{some Haar measure}<\iy
+\end{align}
+%fiber, doesn't have to be dense. 
+However, the LHS is a geometric series. If $\bmod (g) \ne 1$, then
+\begin{align}
+\rc N \sumz n{N-1}\bmod(g^n)=
+\rc N \sumz n{N-1} \fc{\bmod(g)^N-1}{\bmod(g)-1}.
+\end{align}
+The limit can only be 1, if $\bmod(g)=1$, $\iy$, if $\bmod(g)>1$, or 0, if $\bmod(g)<1$. 
+\end{proof}
+Here, we didn't need to choose any generic element.
+
+(Even easier: image is compact, so it has to be $\{1\}$.) %loc ab grp has fin measure. based on func analysis
+
+%$\Ga\bs G$ can diverge
+How can you check if a sequence of points in a noncompact space diverges? For homogeneous spaces there's a suprising and powerful way.
+
+Let $\Ga<G$ be discrete. 
+\begin{df}
+Let $X$ be locally compact, $\si$-compact, then we say that a sequence $\{x_n\}$ diverges , $x_n\to \iy$ as $n\to \iy$, if for every $K\subeq X$ compact, for all $n\gg_K1$, $x_n\nin K$. 
+\end{df}
+%H\bs G compact, because finite measure. 
+%This makes sense for any topological space.
+
+\begin{pr}
+If $\{g_n\}\subeq \Ga \bs G$, $\Ga$ a lattice,  then $\Ga g_n\to \iy$ as $n\to \iy$ iff
+\begin{align}
+r_{\text{inj}}(g_n)\xra{n\to \iy} 0,
+\end{align}
+iff there exists $\{\ga_n\}\subeq \Ga$ %|C
+such that 
+$g_n^{-1}\ga_ng_n\to e$ as $n\to \iy$.
+\end{pr} 
+Recall that $\rc 4 \inf_{e\ne \ga\in \Ga}d(g^{-1}\ga g,e) \le r_{\text{inj}}(g) \le \inf_{e\ne \ga\in \Ga}d(g^{-1}\ga g,e)$.
+\begin{proof}
+\begin{enumerate}
+\item
+If $\Ga{g_{n_k}}\not\to\iy$, then there exists $K$ compact, $n_k$, $\{\Ga g_n\}\subeq K$, such that $r_{\text{inj}}(\Ga g_{n_k})\ge r_{\text{inj}}(K)>0$. 
+%union of countably disjoint balls of the same radius have the same measure in $G$. The union cannot have finite measure, contradicting $\Ga$ being a lattice.
+\item
+If $\Ga g_n\to \iy$, then by the Cauchy criterion, there exists $r_0>0$, for all $n,m>N$, $d(\Ga g_n,\Ga g_m)>r_0$.  
+Fix $0<r<\rc 2 \min\{r_0, \liminf r_{\text{inj}}(\Ga g_n)\}$. 
+There exist infinitely many $n,m\gg1$, $\Ga g_nB_r(e) \cap \Ga g_mB_r(e)=\phi$. But also $\Ga g_n B_r(e)$ is injective for all $n\gg 1$. 
+Thus 
+\begin{align}
+m(\Ga\bs G) & \ge \sum_{n\gg 1} m(\Ga g_nB_r(e)) = \sum_{n\gg 1} m_G(g_nB_r(e)) = \iy \cdot m_G(B_r(e)),
+\end{align}•
+contradiction.
+\end{enumerate}•
+\end{proof}
+
+Here is an application: orbits of finite subgroups must be closed.
+
+Let $H\cir X$, $x\in X$. Then there exists a bijection (of sets) 
+\begin{align}
+\Stab_H(x) \bs H &\xra{\sim} H.x\\
+\Stab_H(x) \cdot h &\mapsto h^{-1}.x.
+\end{align}
+%cts not nec proper
+Suppose the map $H\times X\to Y$ is continuous. (?) For example, let $\R\cir \Z^2\bs \R^2$. 
+%stab of id triv
+Fix $\al\in \R\bs \Q$, and let
+\begin{align}
+r_0(t,s) &= (t+r,s+\al r).
+\end{align}
+The orbit of the identity is dense in $\Z^2\bs \R^2$,
+\begin{align}
+\{e\}\bs \R \to \R.(0,0).
+\end{align}
+\begin{df}
+Let $H\cir X$, $x\in X$. Fix a left Haar measure $m_H$ on $H$. Define $\Vol(H.x)$ as the volume of a fundamental domain for $\Stab_H(x)$ in $H$ (if it exists).
+\end{df}
+ If $X=\Ga\bs G$ and $H<G$ (closed) acts on the right
+\begin{align}
+\Stab_H(\Ga g) &= g^{-1}\Ga g\cap H<H
+\end{align}•
+is discrete. 
+%we can always measure vol, iy unless unimod
+\begin{df}
+An orbit of $H<G$ ($H$ closed) on $\Ga\bs G$ is a \vocab{periodic orbit} if it has finite volume. 
+\end{df}
+This implies $H$ is unimodular.
+%equidist
+%measure converge
+%volume do not go to $\iy$, this cannot happen. You don't expect positive codimension orbits to equidistribute, not reasonable. 
+%only useful to compare orbits of $H$ to orbits of $H$. 
+%different groups, meaningless, because need to normalize Haar measure
+\begin{rem}
+In order to compare volumes of different closed subgroups, fix a bounded %open
+identity neighborhood $e\in B\subeq G$, and normalize $m_H$ on $H$ so that 
+\begin{align}
+m_H(H\cap B)&=1.
+\end{align}•
+%how do we know stab inside ker of mod char
+\end{rem}
+%way to prove grp is unimod
+%If you fix a canonical identity neighborhood
+%
+If the group is totally disconnected (e.g. $p$-adic), it has a maximal compact neighborhood. For archimedean groups, there isn't a canonical way to choose the neighborhood.
+
+\begin{pr}
+Let $\Ga\le G$ be a lattice and $H<G$ be closed. If $\Ga gH$ is a finite volume orbit, then $\Ga gH$ is closed in $\Ga\bs G$ and 
+%Stab
+$g^{-1}\Ga g\cap H\bs H\to \Ga g H$ is proper.
+%stab
+\end{pr}
+\begin{proof}
+Notice that for all $h\in H$, $r_{\text{inj}}^H(h) \ge r_{\text{inj}}^G (gh)$, the LHS with respect to $\Ga_H = g^{-1}\Ga g\cap H$.
+
+If there exist $b_1,b_2\in B_r^H(e)$, $g^{-1}\ga g\in H$, such that 
+$g^{-1}\ga g h b_1 = g^{-1} \ga g h b_2$, then $bB_r^{H}(e)$ is not injective in $H$. Then $\ga g h b_1 = \ga g h b_2$, so it is not injective around $gh$ in $G$. 
+\begin{enumerate}
+\item
+If $\Ga gh_n$ is convergent in $\Ga \bs G$, then
+\begin{align}
+\limsup r_{\text{inj}}^H(h_n) 
+&\ge
+\limsup r_{\text{inj}}^G (gh_n)>0.
+\end{align}
+Then $\Ga_H h_n$ is not divergent and has a convergent subsequence. 
+%inj radius useful, has nothing to do with injectivity
+%show if sequence goes to $\iy$, then infintey in $\Ga\bs G$
+\item
+If $\Ga_H h_n\to \iy$ then $r_{\text{inj}}^G(gh_n) \le r_{\text{inj}}^H(h_n)\to 0$. 
+\end{enumerate}
+\end{proof}
+\begin{df}
+A matrix $g\in \GL_n(\R)$ is unipotent if there exists $k\in \N$, $(g-e)^K=0$. 
+\end{df}
+\begin{exr}
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item
+Suppose $G< \SL_n(\R)$ is a closed subgroup, and $\Ga<G$ is a lattice, $\Ga\subeq \SL_n(\Z)$. Then if $\Ga\bs G$ is not uniform (co-compact), then $\Ga$ contains a unipotent. (Use integral structure of $\SL_n(\Z)$. This is true in much greater generality.)
+\item
+Show the converse statement ($G=\SL_n(\R)$). 
+%jordan normal form. 
+\end{enumerate}
+\item
+Let $(G,d)$ be such that $d$ is proper and $\Ga<G$ be a uniform lattice. Show $\Ga$ is finitely generated.
+\item
+\begin{df}
+For a topological dynamical system $(X,H)$, $H$ a locally compact group with continuous action $H\times X\to H$, suppose $X$ is a locally compact metric space. %and $T:X\to X$ is continuous. 
+Say that $(X,T)$ is \vocab{transitive} if there exists a dense orbit, \vocab{minimal} if every orbit is dense.
+%always nonempty minimal. AoC, in first proof of Oppenheim. It took work to remove it, because people wanted to give an effective statement.
+\end{df}
+Suppose $\Ga\le G$ is discrete, and $H\subeq G$ is closed.
+
+Show that $\Ga\cir G/H$ is transitive (minimal) iff $\Ga\bs G\cil H$ is transitive (minimal). 
+%integral points on homog varieties.
+%H inv in G/Ga and Ga inv in G/H
+\end{enumerate}
+\end{exr}
+
+\subsection{Modular spaces of Euclidean lattices}
+Now we talk about specific groups and their lattices. 
+%alg geo, analogue of proper is separable? mean something different. analogy, confusing.
+%almost as bad as character.
+
+Any lattice is the $\Z$-span of a basis. 
+\begin{df}
+\begin{enumerate}
+\item
+Let $\cal L_n$ be the space of all lattices in $\R^n$.
+\item
+A lattice $\Ga< \R^n$ is unimodular if the volume of $\Ga\bs \R^n$ with respect to the Lebesgue measure of $\R^n$ is $=1$. The volume of $\Ga\bs \R^n$ is called the \vocab{covolume} of $\Ga$: 
+ $\Vol (\Ga\bs \R^n) = \text{covol}(\Ga)>0$. 
+%unimodular if the 
+%abelian group, cert. unimodular
+%covolume
+%every lattice homothetic to unimodular lattice by rescale. const^n.
+\item
+$\cal L_n^1$ is the space of unimodular lattices.
+\end{enumerate}
+\end{df}
+Note $\GL_n(\R) \cir \cal L_n$ acts transitively, and $\SL_n(\R) \cir \cal L_n^1$ acts transitively. 
+
+$\Stab_{\GL_n(\R)}\Z^n = \GL_n(\Z)$, and $\Stab_{\SL_n(\R)}\Z^n = \SL_n(\Z)$. 
+Note here %R com
+\begin{align}
+\SL_n(R) &= \set{g\in \cal M_{n\times n}(R)}{\det g=1}\\
+\GL_n(R) &= \set{g\in \cal M_{n\times n}(R)}{\det g\in R^X}.
+\end{align}
+%alg objects without talk about schemes
+%important is what it does to points.
+%cut out by polynomials.
+The second set does not look like a polynomial, we can embed it as 
+\begin{align}
+\set{g\in \SL_{n+1}(R)}{\forall 1\le i<n, g_{in}=g_{ni}=0}
+\hra \SL_{n+1}(R).
+\end{align}
+I.e. embed as $\matt g 00{(\det g)^{-1}}$. 
+(This can be cut out by polynomial equations. In contrast, 
+$\PSL_n(R)$ cannot be cut out by poly equations, this has ramifications for math life.)
+%dangerous: functor of points.
+Our objective is to understand $\SL_n(\Z)\bs \SL_n(\R)$ and similar spaces. $\SL_n(\Z)$ is discrete; is it a lattice? Yes, but it's not compact. 
+There is a tentacle (cusp) that goes to $\iy$.
+
+What is the topology you get on $\cal L_n^1$, $\cal L_n$? A sequence of lattices $\La_k\to \La$ if for all $k$, we can write
+\begin{align}
+\La_k &= \an{b_1^k,\ldots, b_n^k}_\Z\\
+\La &= \an{b_1,\ldots, b_n}_\Z
+\end{align}
+%how are you cutting out
+such that $b_i^k\to b_i$ as $k\to \iy$.
+\begin{clm}
+$\cal L_n^1$ is not compact. 
+\end{clm}
+\begin{proof}
+We construct a sequence that does not converge. Consider
+\begin{gather}
+\rc n \Z e_1 + n\Z e_2 + \an{e_3,\ldots, e_{n}}_\Z.
+\end{gather}
+Then $\Ga_n\to \iy$. 
+
+Consider this in 2 dimensions. If it were to converge to a lattice, it would contain the whole $x$-axis, and no point with nonzero $y$.
+%first lattice to be discovered, not compact.
+\end{proof}
+Our goal is to prove $\SL_n(\Z)$ is a lattice. 
+%GS process with fancy name. 
+%On the way, we need to write down an expression for the Haar measure; 
+We need to know a priori that $\SL_n(\R)$ is unimodular. One way is to write Haar measure; another is more conceptual. 
+\begin{thm}
+Any perfect group is unimodular.
+\end{thm}
+\begin{df}
+A group is perfect if $G=[G,G]$.
+\end{df}
+A perfect group can have no nontrivial homorphisms to abelian groups. 
+%not far from being simple.
+To show $\SL_n(\R)$ is perfect, we use the following.
+\begin{lem}
+For all fields $F$, define for $1\le i\ne j\le n$
+\begin{align}
+\SL_n(F) > U_{ij} &= \set{I + tE_{ij}}{t\in F}
+\end{align}
+%unipots
+\end{lem}
+$\SL_n(F)$ is generated by $\{U_{ij}\}_{1\le i\ne j\le n}$. %Always a series of ugly comp. 
+%Reasonable proof 
+%someone say K-theory
+%also true for $\SL_n(\Z)$. 
+Well-known theorem: bounded generation. Can you put bound on length on product? This is false for $n=2$ and true for $n>2$.
+%even more horrible.
+%\$10.
+%useful property
+%K_1 vanishes, literally your G/[G,G].

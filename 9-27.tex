@@ -1,0 +1,262 @@
+\blu{9-27}
+
+%$\SL_n(\Z) \sub \SL_n(\R)$, a lattice, $\la_1:\SL_n(\Z)\bs \SL_n(\R)\cong \cal L_n^1 \to \R_{>0}$, $\la_1(\La) = \min_{0\ne v\in \La}\ve{v}_2$. 
+
+We need one general fact before we dive deeper.
+
+$\cal L_1^n$ is not compact. 
+
+\begin{lem}[Mahler compactness criterion]
+For $\si>0$ define $\cal L_n^1(\si)= \set{\La\in \cal L_n^1}{\la_1(\La) \ge \de}$. Then for all $\de>0$, $\cal L_n^1(\de)$ and for all $K\subeq \cal L_n^1$ compact there exists $\de_K>0$ such that $K\subeq \cal L_n^1(\de)$. 
+\end{lem}
+\begin{proof}
+$\la_1$ is continuous, so restricted to a compact set $K$ it attains minimum $\de_K$, so $K\subeq \cal L_n^1(\de_K)$.
+
+If $\La\in \cal L_n^1(\de)$, let $0\ne v_1\in \La$ be a vector of minimal length, and write $\La = \an{v_1,\ldots, v_n}_\Z$. %nothing happens to the first vector
+This basis can be reduced using the LLL algorithm to a basis $v_1^*,\ldots, v_n^*$, $v_1=v_1^*$. 
+
+We know that $a_1=\ve{v_1^*}\ge \de$, $a_2=\ve{v_2^*}\ge t \ve{v_1^*} = t\de$, and so on, $a_n=\ve{v_n^*}\ge t^{n-1}\de$.  %restricted to a compact set 
+We also know $\prodo in \ve{v_i^*}=1$ because the lattice is unimodular.
+
+Then 
+\begin{align}
+\rc{\prod_{i>1} \ve{v_i^*}}&\ge \ve{v_1^*}\ge \de\\
+\rc{\prod_{i\ne 2} \ve{v_i^*}}&\ge 
+\ve{v_2^*} &\ge td
+\end{align}
+so each one of the diagonal entries is inside a closed interval, so it is a compact set.
+%These inequalities trace out a compact set.
+%$v_1,\ldots$, LLL reduced, $v_1^*,\ldots$ Gram-Schmidt
+%$\ga g = n a k$, $n\in N_s$, $a\in A_t$, k\in K$.
+\end{proof}
+%$A_t=\diag(a_1,\ldots, a_n)$, $\prod_i a_i=1$, for all $i$, \fc{a_{i+1}}{a_i}\ge t$.
+%The noncompactness came from the fact there was no restriction on $a_i$. 
+From sticking other groups in $\SL_n(\R)$ you can learn things about then. See e.g. the Borel-Harish-Chandra theorem. If you want to prove the class group is finite, use the geometry of numbers.
+
+\subsection{$\SL_2(\R)$ and hyperbolic plane}
+
+We discuss the relation of $\SL_2(\R)$ to hyperbolic geometry. 
+
+$\SL_2(\R)$ is special.
+There are some infinite sequence of algebraic groups which are simple. Special linear group, orthogonal groups, symplectic groups, and not much beyond that.
+It is a special linear group, symplectic group, and group preserving a quadratic form. This collision of different properties makes it special.
+
+Let $\bb H = \set{z\in \C}{\Re z>0}$. 
+
+There is a nice action of $\GL_2(\C)$ on $\hat \C$,
+\begin{align}
+\matt abcd . z = \fc{az+b}{cz+d}.
+\end{align}
+It is 2-transitive. There is an action of $\SL_2(\R)\cir \bb H$.
+Consider the tangent space $T\bb H = \bb H \times \C$. Give $\bb H$ a Riemann metric by giving each point of the tangent space an inner product: for $z\in \bb H$, $u,v\in \C\cong \{z\}\times \C$, define
+\begin{align}
+\an{u,v}_{z} & =\fc{\an{u,v}_{}}{(\Im z)^2}
+\end{align}•
+The curvature is constant $-1$. This is the unique hyperbolic plane.
+
+We have actions $\SL_2(\R)\cir \bb H$ by isometries and $\SL_2(\R) \cir T\bb H$ by differentiation (?):
+\begin{align}
+\matt abcd . (z,u) &= \pa{\fc{az+b}{cz+d}, \fc{u}{(cz+d)^2}}.
+\end{align}
+The action of $\SL_2(\R)\cir \bb H$ is not faithful, $-I$ doesn't doesn't do anything.
+\begin{df}
+Let $R$ be a commutative ring. Define $\PSL_2(R) = Z(\SL_2(R))\bs \SL_2(R)$. 
+\end{df}
+Note that $Z(\SL_2(\R)) = \pm e = \mu_2$.
+\begin{exr}
+%This is not algebraic. 
+No algebraic group represents $\PSL_2$. (Check what happens over an algebraically closed field and compare with $\PGL_2$.) 
+\end{exr}
+We know $\PSL_2\cir \bb H$ acts transitively. The stabilizer of $i$ is $\Stab_{\PSL_2(\R)} i = \mathrm{PSO}_2(\R)$. Thus
+\begin{align}
+\SL_2(\R)/\SO_2(\R) 
+\xrc 
+\PSL_2(\R)/\mathrm{PSO}_2(\R)
+\xrc
+\mathbb H.
+\end{align}
+%point and orientation
+The unit tangent bundle is $T^1\bb H = \set{(z,u)}{\an{u,u}_z=1}$. Then $\SL_2(\R)\cir T^1\bb H$ simply transitively.
+
+%see as top 
+Topologically, $T^1\bb H$ is contractible to circle around a point, seen using Iwasawa decomposition.
+
+%subset of Riemann sphere. 
+The boundary of the upper half plane is line and point at infinity; that they seem disconnected is artificial.
+
+The geodesics are vertical lines and semicircles perpendicular to $\R$. It's easy to show a vertical line is a geodesic. There is a unique geodesic between every two points; you can move the line to any other geodesic.
+
+There is a geodesic flow $\R\cir T^n\bb H$. For all $(z,u)\in T^1\bb H$, there exists a unit speed geodesic $\ga:\R\to \bb H$, such that $\ga(0)=z$ and $d\ga|_0=u$. %$t_0(z,u) = (\ga(t),d\ga|_t)$. 
+
+\begin{pr}
+The geodesic flow coincides with the action of $A_+<\SL_2(\R)$, the group of diagonal matrices $A_T=\set{\matt{\la}{}{}{\la^{-1}}}{\la >0}$. Specifically, the time $t$ flow is $\matt{e^{\fc t2}}{}{}{e^{-\fc{t}2}}$. 
+\end{pr}
+Take a point on the real line; there are infinitely many geodesics coming out of it.
+Going towards the point, the distance decays exponentially with the flow.
+On the other side the distance grows exponentially. This is typical hyperbolic behavior, also responsible for interesting dynamics.
+
+The $\SL_2(\R)$ invariant measure on $\bb H$ is $\fc{dx\,dy}{y^2}$, for $z=x+iy$. 
+\subsection{Horospherical groups}
+
+This is a completely general phenomenon. 
+\begin{df}
+Let $G$ be locally compact and $\si$-compact. 
+Define $G_a^-$, the \vocab{stable horospherical subgroup},
+\begin{align}
+G>G_a^- & = \set{g\in G}{\limn a^n g a^{-n}=e}.
+\end{align}
+The \vocab{unstable horospherical subgroup} is
+\begin{align}
+G>G_a^+& = G_{a^{-1}}^-
+\end{align}
+Also define the parablic subgroups
+\begin{align}
+P_a^- &= \set{g\in G}{\limn a^n ga^{-n}\text{ exists}}\\
+P_a^+ &= P_{a^{-1}}^-.
+\end{align}•
+%semisimple element
+%parabolic subgroup
+\end{df} 
+If $G$ is abelian, this is just the whole group. If $G$ is compact, also nothing exciting can happen. The group is too simple. %rotations 
+The noncommutativity of isometries over hyperbolic space makes things interesting.
+
+Why are these groups relevant? Let $\Ga \subeq G$ be closed. Let $u\in G_a^-$. Then for all $x=\Ga g\in \Ga\bs G$, $d(a^n.x, a^n.ux)\to 0$ as $n\to \iy$.  To see this, note
+\begin{align}
+d(a^n.x,a^n.(u.x)) 
+&= d(\Ga ga^{-n},\Ga gu^{-1}a^{-n})\\% \xra{n\to \iy} 0\\%mult by inverse on right, always confusing.
+&\le d(a^{-n}, u^{-1}a^{-n}) \\
+&= d(a^n ua^{-n},e)\xra{n\to \iy}0
+\end{align}
+%Move forward in time, distance goes to $\iy$
+%for some groups ? and this are different
+%alg agree - there is a condition to make the P condition algebraic.
+
+What happens over $\SL_2(\R)$? Take $a\in A^+$, $a=\matt{\la}{}{}{\la^{-1}}$. Then
+\begin{align}
+\matt{\la^n}{}{}{\la^{-n}}\matt abcd \matt{\la^{-n}}{}{}{\la^n} &= \matt a{\la^{2n}b}{\la^{-2c}c}d.
+\end{align}
+%stable or unstable: $\la>1$ or $<1$
+So for $\la>1$, 
+\begin{align}
+G_a^- &= \bc{\matt 10*1} & P_a^- &= \bc{\matt *0**}\\
+G_a^+ &= \bc{\matt 1*01} & P_a^+ &= \bc{\matt **0*}.
+\end{align}
+%horocycle flow
+%geodesic point to same point on boundary
+
+Orbits of $U$ are called horocycles. They are
+\begin{enumerate}
+\item
+horizontal lines
+\item
+circles tangent to $\R$.
+\end{enumerate}•
+%dynamics by itsle.f
+They are perpendicular to corresponding geodesics.
+%sphere is nice picture but you start believing hyperbolic plane is compact, bad idea
+%unit tangent bundle... circle bundle...
+
+%famous fundamental domain,
+\subsection{Fundamental domain for $\SL_2(\Z)\cir \bb H$}
+
+This is a set $ \cal F\sub \bb H$ such that $\bb H = \bigsqcup_{\ga\in \PSL_2(\Z)} \ga . \cal F$.
+One way to prove $\cal F$ is to look at the action under generators---one is inversion, one is translation. It's a classical calculation of 19th century mathematics. It has no way of working for $\SL_{57}(\R)$. 
+%siegel domain, is \sqcup shape
+
+%semialgebraic set, important
+%semialg fund domain
+
+%existence of semialg important
+
+The fundamental domain is
+\begin{align}
+\cal F^{\circ} &= \set{z\in \bb H}{-\rc 2<\Re z<\rc 2, |z|>1}\\
+\cal F &= \cal F^{\circ} \cup \text{part of boundary}
+\end{align}
+%thinner because 1/y.
+%closed orbit of A, not finite volume
+Consider the geodesic that is a vertical line at $i$; it goes to infinity. Most geodesics are dense. Many aren't; their closure can be weird. %If you fold the
+But a the closure of a horocyle can only be everything or periodic. If the closure is everything, in the limit it will be equidistributed. 
+%some example in mind, draw pic in mind
+
+%be careful
+How quickly do closed horocycles equidistribute?  Finding the correct rate is equivalent to the Riemann hypothesis. 
+We'll discuss the 
+Margulis mixing argument, quantitative nondivergence.
+Just by understanding how the Haar measure behaves under $G$, we can understand equidistribution of horocycles; this doesn't work of other groups.
+
+\subsection{Measurable dynamical systems}
+
+The systems we are interested in will always be $(\Ga\bs G, \mu)\cil H$, where $H\le G$ is closed. 
+
+\begin{df}
+\begin{enumerate}
+\item
+An action $G\cir (X,\chi,\mu)$, where $G$ is locally compact and $\chi$ is a probability space ($\si$-algebra), is measure-preserving if %fixed sigma-algebra even if vary the measure
+\begin{align}
+\forall g\in G, \quad \forall A\in \chi: \quad \mu(g^{-1}.A) = \mu(A)
+\end{align}•
+%interesting for semigroups.
+(A good example: $G$ with Haar measure. The quality of being measure-preserving descends to subgroups.)
+\item
+A measure-preserving $G\circ (X,\mu)$ is \vocab{ergodic} if any measurable set $A$ satisfying $\mu(g^{-1}.A\triangle A)=0$ %(Any set is essentially invariant.)
+for all $g\in G$, then $\mu(A)=0$ or $\mu(X\bs A)=0$. 
+\item
+A measure-preserving action $G\cir (X,\mu)$ is \vocab{mixing} if for all $A,B$ measurable and any $g_n\to \iy$ in $G$, 
+\begin{align}
+\mu((g_n^{-1}.A)\cap B) \xra{n\to \iy} \mu(A)\mu(B).
+\end{align}
+(If you move far away from the action, it becomes independent.)
+\end{enumerate}
+\end{df}
+%countably generated si-algebra
+%highly abstract nonsense
+%is every si-alg equiv to countable si-alg - axiom of choice...
+%people who like explicit integers shouldn't think too much about.
+%We can ask for stronger. Equivalent, not trivial to prove.
+Mixing implies ergodicity: 
+Take $A$ $G$-invariant; then  because applying $g$ many times you get $\mu(A)^2=\mu(A)$. 
+
+Being weakly invariant under a subgroup is a weaker condition. 
+Ergodicity does not descend to subgroups; mixing does.
+To show ergodic for a subgroup, you can prove mixing for a larger group. 
+\subsection{Koopman representation}
+
+Let $G\cir (X,\chi, \mu)$ be a measure-preserving map. There is a unitary representation of $G$, 
+\begin{align}
+%\pi
+U: G &\to U(L^2(X,\mu))\\
+%\pi(g) . f
+U_g(f) &=f(g^{-1}.x) %= U_g(f),
+\end{align}
+continuous if $G\times X\to X$ is continuous.
+%norm on unitary operators.
+It preserves the inner product because it is measure-preserving.
+\begin{rem}%read it in the book
+\begin{enumerate}
+\item
+$G\cir X$ is ergodic iff the only eigenfunctions of $G$ in $L^2(X,\mu)$ with eigenvalue 1 is $\C\cdot 1$. %\one %1 is a simple eigenvalue of $G\cir L^2(X,\mu)$. 
+
+This is a fancy way of saying: for all $f\in L^2(X,\mu)$, $G\circ f = f$ implies $f\in \C\times 1$.
+\item
+$G\cir X$ is mixing if $\forall f,g\in L^2(X,\mu)$,  for all $g_n\to \iy$,
+\begin{align}
+\an{U_{g_n}f,g} \xra{n\to \iy} \int f\,d\mu\int g\,d\mu.
+\end{align}
+%asymptotic independence
+%mixing implies ergodicity, the other way arround is wrong, irrational rotation on torus is ergodic but not mixing.
+\begin{exr}
+Let $\bb T^d = \Z^d \bs \R^d$ with the Lebesgue measure. Let $\mu\in \GL_d(\Z)$ be hyperbolic (no eigenvalues of modulus 1). 
+
+$\Z$ acts on $\bb T^d$ by $M^n$, ($v+\Z^d$).  Show that this action is mixing, in fact exponentially mixing, 
+\begin{align}
+|\an{M^n f,g}-\int f\int g|\ll_{f,g} e^{-\al n}
+\end{align}
+(Use Fourier analysis.)
+\item
+Fix $\al\in \R^d$, then $\Z\cir \bb T^d$ by translations. Show this is not mixing.
+%interesting actions of lie groups not mixing.
+\end{exr}
+\end{enumerate}
+
+\end{rem}

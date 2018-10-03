@@ -1,0 +1,198 @@
+\chapter{Intro}
+
+\section{Intro}
+
+Homogeneous dynamics is about a special kind of dynamical system. We start with $G$, a locally compact topological group. Think of 2 examples: $G=\R^n$ and $G=\SL_n(\R)=\set{g\in\cal M_{n\times n}(\R)}{\det g=1}$. 
+
+Consider $\Ga<G$ discrete with finite covolume. Consider the quotient manifold $\Ga \bs G \cil G$, which has a natural action by $G$,
+\begin{align}
+h.\Ga g &=\Ga gh^{-1}.
+\end{align}
+It has finite covolume if $\Ga \bs G$ carries a finite $G$-invariant Borel measure. It will always be explicit for us; we can write it down in coordinates.
+It always carries a left-invariant and right-invariant measure called the Haar measure, unique up to constant. The quotient group also carries a invariant measure but it doesn't have to be finite. 
+
+The Haar measure on $\R^n$ is the Lebesgue measure.
+
+\begin{exr} Write a Haar measure on $\GL_n(\R)$ in coordinates; write in terms of $g=(x_{ij})_{ij}$. 
+\end{exr}
+\begin{rem}
+If $\Ga\bs G$ is compact, then $\Ga$ is a lattice in $G$ ($\Ga < G$). 
+\end{rem}
+
+\begin{ex}
+Let $\Ga = \Z^n<\R^n=G$. 
+Then $\Ga \bs G = \Z^n\bs \R^n\cong \T^n$.
+%lattice: quotient compact
+Note $\T^1\cong \bS^1$. 
+The quotient can be represented by a fundamental domain, $[0,1]$, where 0 and 1 are identified.
+\end{ex}
+\begin{ex}
+Another example: $\Ga = \SL_n(\Z) = \set{g\in \cal M_{n\times n} (\Z)}{\det g=1}$ is a lattice in $\SL_n(\R)$.  
+The quotient is not compact but has finite volume; it's a weird object. It has something that goes to infinity but gets thinner and thinner.
+It's a moduli problem of some sort.
+%never compact, weird object
+%not compact but has finite volume. 
+%something that goes to infinity but gets thinner and thinner.
+\end{ex}
+
+Dynamics: Let $H<G$ be a closed subgroup. Then $H\cir \Ga \bs G$. 
+We want to understand all orbits of this group, or as many as we can.
+
+Consider a line in $\R^2$. If we quotient by $\Z^2$, the line folds into itself. This folding can be complicated. The closure of each orbit is either either periodic (a subtorus, if the slope is rational) or everything. This is a simple result we try to imitate in a more complicated setting.
+
+Our aim is to understand orbit closures of $H \cir \Ga \bs G$ and $H$-invariant probability measures on $\Ga\bs G$. 
+
+The classic motivation was from geometry: flows on negatively curved manifolds. In the 80's, due to Margulis, the subject became related to number theory, and exploded exponentially.
+
+Margulis solved the following problem, for which the field became famous.
+\begin{conj}[Oppenheim]
+Let $Q(x_1,\ldots, x_n) = x^\top Gx = \sum g_{ij}x_ix_j$ be an irrational indefinite non-degenerate quadratic form in $n\ge 3$ variables.
+Then $Q(\Z^n_{\text{prim}})$ is dense in $\R$. ($\Z^n_{\text{prim}}$ is the set of points with no common divisors.)
+\end{conj}
+Davenport proved this for $n\ge 9$. It was hard to push it down to 3. 
+
+The solution depends on this observation due to Raghunatan and Margulis. The conjecture is equivalent to the following statement:
+Consider $\SO(Q) = \set{g\in \SL_n(\Z
+%\R
+)}{Q(g.x) = Q(x)}$. Note $\SO(Q)\cir \SL_n(\Z) \bs \SL_n(\R)$. 
+(To see this, note $Q(\Z^n)$ is invariant under $\SL_n(\Z)$.)
+\begin{conj}
+Every orbit of $\SO(Q)$ on $\SL_n(\Z)\bs \SL_n(\R)$ is either unbounded or it is compact and carries a finite $\SO(Q)$-invariant measure. 
+\end{conj}
+You cannot have bounded orbits which are not compact. This dichotomy between 2 types of orbits is very close to the original conjecture.
+
+This type of proof gives non-effective results at first. It's a soft statement. Since then it has been made effective to some extent.
+
+%examples of personal taste
+%not not important, just less close to my heart
+
+The following example can be solved using homogeneous dynamics, or 
+harmonic analysis and automorphic forms. The methods are related.
+\begin{ex}
+Let $V_d$ be the variety of matrices with $\det X=d$, $d\in \N$, so
+\begin{align}
+V_d(\R) &=\set{X\in \cal M_{n\times n}(\R)}{\det X=d}.
+\end{align}
+Question: Fix a ``nice'' bounded open set $\Om\subeq V_1(\R)$. How many integral points are there in $\Om$---how does this grow as $d\to \iy$?
+\begin{align}
+\text{as }d\to \iy, \quad |d^{-1/n}V(\Z) \cap \Om|&\sim ?
+\end{align}
+The answer is that 
+\begin{align}
+\fc{|d^{-1/n}V(\Z)\cap \Om_1|}{|d^{-1/n}V(\Z)\cap \Om_2|} \to \fc{m(\Om_1)}{m(\Om_2)} 
+\end{align}
+for the Haar measure $m$. %an explicit measure $m$.
+It's easy to calculate the rate of convergence.
+%If you modify the integral model what happens to the solutions?
+
+Observe that $V_d$ is homogeneous, $G=\SL_n(\R)\times \SL_n(\R)\cir V_d(\R)$ by 
+\begin{align}
+(g_1,g_2).X &= g_1Xg_2^{-1}.
+\end{align}
+The action is transitive and $G(\Z)$ stabilizes $V_d(\Z)$. There's only finitely many $G(\Z)$ orbits on $V_d(\Z)$ (due to Borel, Harish-Chandra). 
+To see this, note each matrix has a Smith normal form: for all $M\in \cal M_{n\times n}(\Z)$ there exists $S,T\in \GL_n(\Z)$ and $d_1|\cdots |d_n$ such that 
+$M=S\mattn{d_1}{}{}{}{\ddots}{}{}{}{d_n}T$. There are finitely many orbits and you can classify them.
+
+All points are conjugate, so to understand the stabilizer, fix your favorite point and calculate its stabilizer.
+\begin{align}
+\Stab_G (d^{-1/n} I_d) = \SL_n(\R)^\De \hra \SL_n(\R)\times \SL_n(\R). 
+\end{align}
+Understanding $Q$ is the same as studying ``periodic'' orbits of $\SL_n(\R)^\De\cir \SL_n(\Z)\bs \SL_n(\R) \times \SL_n(\Z) \bs \SL_n(\R)$. 
+If a group acts transitively, the space looks like the group quotiented by the stabilizer.
+\begin{align}
+V_d(\R) &\cong \SL_n(\R)\times \SL_n(\R) /\SL_n(\R)^\De.
+\end{align}•
+%higher and higher volume become equidist wrt Haar measure
+You can show this with automorphic forms, using a spectral gap, so don't be impressed by this example.
+\end{ex}
+
+The following is more impressive, and brings the world of $p$-adics into the game.
+%very thin set in set of integral points.
+\begin{ex}
+Let $V(\R) = \bS^{n-1}(\R)\times \bS^{n-1}(\R) = \set{v,w\in \R^n}{\an{v,v}=1,\an{w,w}=1} $, $n\ge 3$. 
+For $d\in \N, e\in \Z$. 
+%for which values of d
+\begin{align}
+V_{d,e}(\Z) = \set{v,w\in \Z_{\text{prim}}^n}{\an{v,v}=d,\an{w,w}=d,\an{v,w}=e}.
+\end{align}
+A classical number theorist can check for which $d,e$ there are solutions. 
+For $\Om\subeq V(\R)$ nice. Then the conjecture is that
+%usual rot-inv measure
+\begin{align}
+\fc{\ab{d^{-1/2} V_{d,e}(\Z)\cap \Om}}{|V_{d,e}(\Z)|} \to m\times m(\Om)
+\end{align}
+where $m$ is the rotation invariant measure on the sphere.
+%stack in positive codim
+if $d\to \iy$, $|e|\to \iy$. 
+
+This is known for $n\ge 4$ (certainly for $n\ge 6)$. For $n=3$ this is open, related to Fourier coefficients of modular forms, and the Andre-Orr conjecture.
+\end{ex}
+%shouldn't have finite set of accum points
+For $n=3$ you can count up to Ziegler's bound; the  number of points on the sphere is a class number.
+%For $e$ prime. Pairs where you can move from one to other from fixed element of the class group.
+%extra action
+
+$SO_n(\R) \times \SO_n(\R)\cir V(\R)$.  The stabilizer is conjugate  over $\R$ to $\SO_{n-1}(\R)^\De\hra \SO_n(\R) \times \SO_n(\R)$ (You need to rotate the same).
+%sitting diagonally inside
+%must rotate by the same rotation
+$\SO_{n-1}(\R)^\De$ is compact, which is a big problem; dynamics are simple and there's nothing you can use. Why can you solve it using dynamics? Enlarge your original problems. Because equations are integral, consider not just integral but $p$-adic places. Stabilizers of points may be non-compact in the $p$-adic place. Use dynamics of the $p$-adic places.
+
+Except for Oppenheim's conjecture, in all applications you use $p$-adic places in some deep way.
+
+You can also use dynamics to count points. 
+
+The next example is surprising. 
+You generate a nontrivial integral point using dynamics. This is an example of a different nature.
+% Just counting how many points there are can use 
+
+\begin{ex}[Ellenberg-Venkatesh]
+Let $(Z^n,Q),(Z^m,Q')$ be quadratic spaces (coordinate free version of quadratic form).
+
+We try to represent one by another using more variables. In the simplest case, can we represent an integer by a given quadratic form; that's the $m=1$ case.
+%coordinate free version of quadratic form
+
+We say that $Q'$ is representable by $Q$ if there is a homomorphism of abelian groups $\ph:\Z^m\hra \Z^n$ such that $Q'=Q\circ\ph$. This is a fancy way to say the following: if you write in coordinates,
+\begin{align}%y_1,\ldots, y_m
+Q'(y) &= Q(A.y), \quad A\in M_{n\times m}(\Z).
+\end{align}
+\end{ex}
+
+There are some obviously necessary conditions, the local conditions.
+%It's a question in analysis
+\begin{df}
+$Q'$ is everywhere locally representable by $Q$ if $Q'\ot \R$ is representable by $Q\ot \R$ and for all $p$, and for all $p$, $Q'\ot \Z_p$ is representable by $Q\ot \Z_p$, or equivalently, for all $p^d$, $Q'\bmod {p^d}$ is representable over $\Z/p^d\Z$ by $Q\bmod{p^d}$. 
+\end{df}
+Is this sufficient, i.e., does the local-to-global principle hold? Not necessarily. 
+
+
+\begin{thm}[Ellenberg-Venkatesh]
+Let $Q$ be a positive definite form over $\Z^n$. There exists $C(Q)$ such that if $m\le n-7$ and $(\Z^m,Q')$ has square-free discriminant, $Q$ represents $Q'$ locally everywhere, and $\min_{\bS^{m-1}(\R)} Q' %(\R)
+>C(Q)$, then $Q$ represents $Q'/\Z$. 
+%big enough condition
+\end{thm}
+%integral points, set of rep, write one in terms of another.
+The proof idea: it's known it has a rational point, you want to upgrade it to a integral point. Integrality can be checked locally, and so can be checked using dynamics.
+%min over nonzero opints.
+\begin{conj}
+This holds if $n-m\ge 3$. 
+\end{conj}
+What happens if $n-m=2$ is interesting. It's unclear what to conjecture. The stabilizer becomes abelian; its nature changes. %quotient nonabelian.
+
+There is another pair of examples, due to Venkatesh.
+\begin{enumerate}
+\item
+A modular form on nonarithmetic group cannot have multiplicative coefficients. This is a nice application of homogeneous dynamics. See Kowalski's blog.
+\item Elliptic curves: higher-order Heegner points, traces are nontrivial.
+\end{enumerate}
+Let $G$ be a locally compact second countable group, $G=\SL_n(\R)$. $G$ carries a left invariant Borel measure $m_L$ and a right invariant Borel measure $m_R$. I.e., for all $A$, for all $g\in G$, 
+\begin{align}
+m_L(gA)&=m_L(A).
+\end{align}
+By Riesz representation, this is equivalent to: for all $f\in C_c(G)$, 
+\begin{align}
+\int f(gx) \, dm_L(x) &= \int f(x) \, dm_L(x).
+\end{align}
+The measures are not always the same. $G$ is \vocab{unimodular} if $m_L=m_R$.
+\begin{exr}
+Show that $\SL_n(\R)$ is unimodular.
+\end{exr}

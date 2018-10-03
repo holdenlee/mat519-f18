@@ -1,0 +1,214 @@
+\blu{9-25}
+
+$\GL_n(\R)\cir \cal L_n(\R)$, $\SL_n(\R) \cir \cal L^1(\R)$, $\SL_n(\Z)\bs \SL_n(\R) \xra{\sim} \cal L_n^1(\R)$. 
+
+We showed that $\cal L_n^1$ is not compact. 
+
+%unimod lattice short vect, wrong for higher $n$.
+
+For higher $n$, there's no known algorithm to compute the shortest vector of a given lattice.
+
+\begin{pr}
+Let $\la_1:\cal L_n^1 \to \R_{>0}$, $\la_1(\La) = \min_{0\ne v\in \La} \ve{v}_2$. This function is continuous. 
+\end{pr}
+Every primitive vector $v\in \La$ can be completed to a $\Z$-basis of $\La$. This is a statement of algebra; a lattice is $\cong \Z^n$, so this follows from theory of abelian groups.
+
+%\begin{df}
+%For all $1\le i\ne j\le n$, any field $F$, 
+%\begin{align}
+%U_{ij}(F) &= \set{I + tE_{ij}}{t\in F} \xra{\cong} (F,t).
+%\end{align}
+%\end{df}
+\begin{pr}
+$U_{ij}(F)$ generates $\SL_n(F)$. 
+\end{pr}
+%field of hyperreals, function field of curve
+\begin{cor}
+$\SL_n(F) = [\SL_n(F), \SL_n(F)]$. Hence, $\SL_n(\R)$ is unimodular. 
+\end{cor}
+\begin{proof}
+It is enough to show that for all $i\ne j$, $U_{ij}\subeq D(\SL_n(F))$. Take $a=\diag(a_1,\ldots, a_n)$; then
+%stable under conj
+\begin{align}
+[a,u]_{i,j} &= (a^{-1}u^{-1}au)_{i,j} = u_{ij} \pa{1-\fc{a_i}{a_j}}
+\end{align}
+by appropriate choice of $a$ and $u$ you find any $u\in U_{ij}(F)$ is in $D(\SL_n(F))$. 
+(Diagonal matrices conjugate unipotents.)
+\end{proof}
+
+We study the Siegel domain. It was constructed before he was born in the 19th century by 2 Russian mathematicians; he generalized the construction.
+%K,C
+
+Iwasawa decomposition: we define some subgroups of $\SL_n(\R)$ and see how to get $\SL_n(\R)$ from these subgroups. First consider
+\begin{align}
+K&=\SO_n(\R)<\SL_n(\R),
+\end{align}
+the maximal compact subgroup.
+It acts transitively on the $n$-dimensional sphere, and is compact by induction (it is an extension of $\SO_{n-1}(\R)$).
+Next, the diagonal matrices and the positive chamber,
+\begin{align}
+A &= \set{\diag(a_1,\ldots, a_n)}{\det = 1}<\SL_n(\R)\\
+A^+ &= \set{\diag(a_1,\ldots, a_n)}{\prodo in a_i = 1, \forall i, a_i>0}& \text{commutative}\\
+%can't cut off with poly eqs. positivity is not poly condition. in R, y=x^2
+N&= \bc{\mattn{1}{\cdots}{0}{*}{\ddots}{\vdots}{*}{\cdots}1} &\text{nilpotent}\\
+B=NA &= \bc{\mattn{*}{\cdots}{0}{*}{\ddots}{\vdots}{*}{\cdots}*}\\
+B^{\circ} &= NA^+
+\end{align}
+The difference between $n=2$ and $n>2$ is a huge source of struggle in life. For $n=2$, $\SO_n(\R)$ is commutative. For $n>2$ this has a free group inside it! Which is easier? It depends on the question. In many cases the commutative case is more difficult.
+
+\begin{pr}
+$\SL_n(\R)=NA^+K$. For all $g\in \SL_n(\R)$, there exists $n\in N$, $a\in A^+$, $k\in K$, such that $g = nak$.
+\end{pr}
+\begin{proof}
+ This is the Gram-Schmidt process. Think of $G$ as being $n$ vectors. 
+Given $v_1,\ldots, v_n$, let $v_1^*=v_1$, and $v_2^* = v_2 - \fc{\an{v_1,v_2}}{\an{v_2,v_2}} - v_1$. 
+\end{proof}
+Note here that $a_1 = \ve{v_i^*}_2$.
+
+(If you compute something, you probably understand it, at least better than if you can't compute it.)
+
+If a group is composed of 2 unimodular groups, like $B=NA$, then it is not unimodular. 
+
+We write down the Haar measure, so we can compute the volume of some specific sets.
+\begin{pr}
+Suppose $G=ST$, $S\cap T=e$. Then 
+\begin{align}
+m_G^R &\propto \bmod_G m_S^L \times m_T^R
+\end{align}•
+\end{pr}
+(If it's unimodular, you expect $m_S^L\times m_T^R$ to be the measure. If it's not unimodular, you get a modular character.)
+The easiest way to prove it is with conditional measures, which we'll introduce later. 
+
+%If you take your Haar measure, 
+\begin{proof}
+What happens is a fancy version of Fubini.
+%Each fiber is 
+
+We have projection $G=ST\xra{\pi_T} T$, $T\cong S\bs ST$, $m_G^R \mapsto \pi_T^*.m_G^R$. 
+%Integrate along each fiber.
+
+We can write
+\begin{align}
+m_G^R &=\int \mu^t\,d\pi_T^* . m_G^R(t). 
+\end{align}
+%On each fiber, it's related by a modular character. 
+The measure is the same on each fiber up to a constant that varies between fibers.
+We can move between any fibers by  an element of $G$. 
+%up to constant that varies between fibers.
+%multiplying by the inverse.
+%push forward by the inverse map.
+\end{proof}
+
+\begin{pr}
+The unimodular character of $B^\circ$ is
+$\rh:B^\circ \to \R_{>0}$. $\rh(b) = \prod_{i<j} \fc{b_{ii}}{b_{jj}}$. 
+\end{pr}
+This is straightforward if we know about Lie groups. 
+\begin{cor}
+\begin{align}
+m_{B^\circ}^L&\propto \rh \cdot m_N\times m_{A^+}\\
+m_{\SL_n(\R)} &\propto \rh \cdot m_{N} \times m_{A^+} \times m_K.
+\end{align}
+%left-invariant
+\end{cor}
+%contractive up to $K$. 
+%iwasawa of product, doesn't work in simple/nice way. but measures work
+
+\subsection{Siegel domain}
+
+\begin{df}
+Let $s,t>0$. Then define $N_s$, $A_t$, and $\Si_{s,t}$ by
+\begin{align}
+N\supeq N_s &= \set{\mattn 1{\cdots}{0}{}{\ddots}{\vdots}{(n_ij)}{}{a_n}}{|n_{ij}|\le s}.\\
+A^+ \supeq A_t 
+&= \set{\diag(a_1,\ldots, a_n)}{a_1>0,\fc{a_{i+1}}{a_i} > t\forall i<n}\\
+\Si_{s,t} &= N_s A_tK.
+\end{align}
+\end{df}
+
+We have coordinates on $A^+$:
+\begin{align}
+\log_A : A^+ &\xra{\cong} (\R^{n-1}, +)\\
+\diag(a_1,\ldots, a_n) &\mapsto (t_1,\ldots, t_{n-1})\\
+\ub{\log_A(A_t)}{\subeq \R^{n-1}} &= 
+\set{(t_1,\ldots, t_{n-1})}{t_i = \log \pf{a_{i+1}}{a_i}, t_i > \log t}.
+%union of ga-translates covers, not nec disjoint
+\end{align}
+%some translate, such that if you apply the GS .
+%not difficult but nice
+\begin{thm}
+$\Si_{s,t}$ is a surjective set for $\SL_n(\Z)$ for all $s\ge \rc 2$, $t>\fc{\sqrt 3}2$. 
+\end{thm}
+\begin{proof}
+Use the LLL algorithm.
+\begin{df}
+\begin{enumerate}
+\item
+A basis for a lattice $g=nak$ is semi-reduced if its $N$-part $n$ satisfies $n\in N_{\rc 2}$. 
+\item
+A basis $g=nak$ is $t$-reduced if $a\in A_t$, $g=(v_1,\ldots, v_n)$, $\fc{\ve{v_{i+1}^*}}{\ve{v_i^*}}>t$.  %-1/2,1/2 is fund domain; that's why 1/2 appears.
+\end{enumerate}
+\end{df}
+($[-1/2,1/2)$ is a fundamental domain of $\R$; that's why 1/2 appears.)
+%make the n part, abs value $\le \rc 2$.
+The algorithm is as follows.
+\begin{enumerate}
+\item
+Multiply $g=nak$ on the left by an element of $N(\Z)$ such that $g$ is semi-reduced.
+%shift by integer.
+\item If $g$ is now $t$-reduced, finish.
+\item If $g$ is not $t$-reduced, find minimal $i$ such that $\fc{a_{i+1}}{a_i} = \fc{\ve{v_{i+1}^*}}{\ve{v_i^*}}\le t$ and switch order of $v_i$ and $v_{i+1}$. 
+\end{enumerate}
+%Why does the algorithm terminate, why does it improve things?
+We claim the process terminates. Define the capacity of an ordered basis  by
+\begin{align}
+D(v_1,\ldots, v_n) &= \prodo in \text{covol}(\Z v_1 + \cdots + \Z v_i)\\
+%vol in $\R^i$. depends on the order
+&=\prodo in \ve{v_i^*}^{n-i+1}. 
+\end{align}
+It's easy to see $D(v_1,\ldots, v_n) \ge D \La >0$ where $\La = \spn_{\Z}(v_1,\ldots, v_n)$, $D=\prodo in D_i$, $D_i = \text{covol}(\Z v_{1}+\cdots \Z v_i)$. 
+%prove for each $D_i$. 
+%for D_i trivial, shortest vec. same for everyone else. k-dim lattice of minimal covolume
+%geometry of numbers, minkowski's theorem
+To see that $D_i(v_1,\ldots, v_i)$ has minimum $>0$, notice that $\bigwedge^i \Ga$ is discrete in $\bigwedge^i \La$ is discrete in $\bigwedge^i \R^n$.
+%divergence, unipotent flows
+
+We will show that $D$ decays geometrically each iteration. $D_i=\prodo ji \ve{v_j^*}$. Assume we have switched $v_{i_0}$ and $v_{i_0+1}$. Note $D_i^{\text{old}} = D_i^{\text{new}}$ for all $i\ne i_0$. So \begin{align}
+D^{\text{new}} = D^{\text{old}} \fc{D_{i_0}^{\text{new}}}{D_{i_0}^{\text{old}}} = D^{\text{old}} \fc{\ve{v_{i_0}^{*,\text{new}}}}{v_{i_0}^{*,\text{old}}}.
+\end{align}
+So 
+\begin{align}
+v_{i_0}^{\text{new}}
+&= v_{i_0+1}^{\text{old}}
+ - \fc{\an{v_{i_0+1}^{\text{old}}, v_1^{\text{old}}}}{\ve{\cdots}} v_1^{\text{old}}- \cdots - \fc{\an{v_{i_0+1}^{\text{old}}, v_{i_0-1}^{\text{old}}}}{\cdots} v_{i_0-1}^{\text{old}}\\
+ v_{i_0+1}^{\text{old},*} &=
+v_{i_0}^{\text{new},*} - 
+\ub{\fc{\an{v_{i_0+1}^{\text{old}}, v_{i_0}^{\text{old}}}}{\cdots}}{|\cdot|\le \rc 2}
+v_{i_0}^{\text{old}}\\
+v_{i_0+1}^{\text{new},*} &= v_{i_0+1}^{\text{old},*} + \mu v_{i_0}^{\text{old},*}.
+\end{align}
+Thus
+\begin{align}
+D_{i_0}^{\text{new}} &
+= D_{i_0}^{\text{old}} \sfc{\ve{v_{i_0+1}^{\text{old},*} + \mu v_{i_0}^{\text{old},*}}^2}{\ve{v_{i_0+1}^{\text{new},*}}}\\
+&\le D_{i_0}^{\text{old}} \sqrt{t^2 + \rc 2}<D_{i_0}^{\text{old}}.
+\end{align}•
+
+\end{proof}
+%nilponent group, all lattices compact
+%in solvable? wilder, more.
+%solvable, has G-inv measure iff G/H compact
+%amenable groups
+%semisimple phenomenon
+%existence of many short vectors
+%minimize covol of span of them, might work.
+%lower bound, 
+
+How big is the Siegel set in the fundamental domain? 
+On calculating the volume:
+This was the first important use of trace formula. %.: trivial representation inside
+The volume of the Siegel domain is $\exp(\poly(\Vol(\SL_n(\Z)\bs \SL_n(\R))))$. You need Eisenstein series structure for this. 
+
+\begin{exr}
+Calculate that $\Vol(\Si_{s,t})<\iy$. (Use $\log_A$ coordinate and modular character of $B$.
+\end{exr}

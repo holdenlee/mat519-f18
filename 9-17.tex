@@ -1,0 +1,245 @@
+\fixme{Correction from last time: local-global: $Q'$ represents $Q$, $\min_{\Z^n\bs \{0\}} Q'\ge C(Q)$, not effective (?).}
+
+\subsection{Haar measures}
+
+Let $G$ be a locally compact group. There exists a right-invariance Borel measure $m\ne 0$ on $G$: for all $B$ Borel, $g\in G$, $m_R(Bg)=m_R(B)$. This measure is unique up to scaling. We can define a left-invariant measure by $m_L(B) = m_R(B^{-1})$. 
+
+A group admits a finite Haar measure iff it is compact. 
+A nice way is to prove this is with representation theory. 
+A Haar measure satisfies:
+\begin{enumerate}
+\item
+$m_R(K)<\iy$ for all compact $K\subeq G$. 
+\item
+$m_R(O)>0$ for all open $O\subeq G$.
+\end{enumerate}
+
+\begin{pr}
+Let $G$ be a compact abelian group, $g\in G$, $\ol{\an{g}}=G$. Then any $R_g$-invariant probability measure is the Haar measure.
+\end{pr}
+\begin{proof}
+$G$ acts on the right on  $\cal M_1(G)$, the space of probability measures on $G$, by 
+\begin{align}
+(g.m)(B) &= m(Bg).
+\end{align}
+$\cal M_n(G)$ is a compact metric space equipped with the weak-* topology. 
+%banach kalau?
+%spanned by countable collection of cts functions, ex. characters
+$\Stab_G(\mu) = \set{g\in G}{g.\mu=\mu}$.
+It is a closed subgroup, by checking against continuous functions (by Riesz representation).
+$g\in \Stab_G(\mu)$ implies $\ol{\an{g}}\subeq \Stab_G(\mu)$, so $\Stab_G(\mu) = G$ and $\mu=m$.
+\end{proof}
+This is a very soft argument.
+\begin{cor}
+Let $f\in C(G)$, $h\in G$. Then
+\begin{align}
+\rc N \sumz n{N-1} f(hg^{-n}) \xra{N\to \iy} \int f\,dm.
+\end{align}
+\end{cor}
+\begin{proof}
+Let $\mu_n:=\rc N\sumz n{N-1}  \de_{hg^{-n}}$. 
+%it's not clear a priori it converges to anything, but it has limit points.
+%telescopes, negligible
+Let $\mu_\iy$ be any weak-$*$ limit point of $\mu_n$. Then $\mu_\iy$ is $R_g$. ($g.\mu_N-\mu_N\to 0$ by telescoping.)
+%(diff $g.\mu$ and $\mu_N\to 0$
+ Thus $\mu_\iy=m$. 
+%all cpt groups are unimodular, we prove st much stronger
+Hence $\mu_N \xra{\text{weak-*}} m$.
+\end{proof}
+This is an extremely soft argument, but common in ergodic theory.
+\begin{exr}
+Prove the same using Pontryagin duality: $\wh G=\set{\chi}{G\to \bS^n}$ separates points.
+%irrational rotations on torus, weyl equidistribution
+%general distribution without examples.
+%NT solve something specific
+%do once and forget about it
+\end{exr}
+Let $G$ be a locally compact %s-cpct 
+group equipped with a left-invariant metric $d_G:G\times G\to \R_{\ge 0}$:
+%lie group, fav product on lie algebra, move around , riemann metric
+For all $h,g_1,g_2\in G$, $d(hg_1,hg_2)=d(g_1,g_2)=d(g_2^{-n}g_1,e)$. ($d_G$ exists always, if $G$ has countable %$\aleph_0$-
+basis.)
+\begin{df}
+Let $H\le G$ be a closed subgroup. Define $d_{H\bs G}:H\bs G\times H\bs G\to \R$ by $d(Hg_1,Hg_2) = \inf_{h_1,h_2\in H} d(h_1g,h_2g) = \inf_{h\in H} d(hg_1,g_2)$. 
+\end{df}
+Check that $d_{G/H}$ is  a metric, $G/H$ is a locally compact s-cpct space, $G$ and $G/H$ metr complete, $d_{H\bs G}$ induces the quotient topology on $G/H$.
+%complete
+Comment: If $d_G$ is proper (closure of open ball is a closed ball) and $H=\Ga < G$ is discrete then the inf is realized.
+
+%proj map is local isometry
+Assume $\Ga < G$ is discrete. 
+\begin{pr}
+For every $K\subeq \Ga \bs G$ compact, there exists $r=r(K)>0$, a \vocab{radius of injectivity} for $K$, such that for $\Ga g\in K$, 
+\begin{align}
+B_r(g) &= gB_r(0) \to \Ga gB_r(e)
+\end{align}
+is injective (and hence is an isometry). In $\pi:G\to \Ga \bs G$, $\pi|_{B_r(g)}$ is injective. Moreoever, if $K=\{\Ga h\}$ then 
+\begin{align}
+r = \rc 4 \inf_{e\ne \ga \in \Ga} d(h^{-1}\ga h,e)
+\end{align}
+works.
+\end{pr}
+(This is $>0$ because $\Ga$ is discrete.)
+\begin{proof}
+We show this for $K=\{\Ga h\}$.  Let $g_1,g_2\in B_r(e)$. 
+\begin{align}
+d(\Ga hg_1,\Ga hg_2) &=
+\inf_{\ga\in \Ga} d(h^{-1}\ga hg_1,g_2).
+\end{align}
+%isometry. injective implies isometry
+We want to establish that the inf is realized at $\ga = e$. By the triangle inequality,
+\begin{align}
+4r &\le d(h^{-1} \ga h, e) = d(e, h^{-1}\ga h) \le d(g_1,h^{-1}\ga h) + d(e,g_1)\\
+&\le d(h\ga h^{-1} g_1,e) + r 
+\le d(h\ga h^{-1} g_1,g_2) + d(g_2,e) + r\\
+&\le d(hgh^{-1} g_1,g_2) + 2r.
+\end{align}•
+So 
+\begin{align}
+d(hgh^{-1}g_1, g_2)&\ge 2r \ge d(g_1,g_2).
+\end{align}
+If $K\subeq \Ga \bs G$ is compact, for any $y\in \Ga gB_{r/2}(e)$, $r$ the injective radius of $\Ga g$, $r/2$ is an injective radius. Use compactness.
+\end{proof}
+\begin{df}
+Define $r_{\text{inj}}(\Ga g)$ as the supremum (maximum) over injectivity radii at $\Ga g\in \Ga \bs G$. 
+\end{df}
+%if analyst, allow slack.
+%only on capital  g, not little. $\ga$-inv
+%property of $G/\Ga$.
+\begin{align}
+\rc 4 \inf_{e\ne \ga \in \Ga} (g^{-1}\ga g,e)
+&\le r_{\text{inj}}(\Ga g) \le \inf_{e\ne \ga \in \Ga} d(g^{-1}\ga g,e).
+\end{align}
+A word of caution.
+\begin{rem}
+$\pi:G\to \Ga\bs G$ is a covering map, $\Ga$ acts on $G$ without fixed points. 
+The same is not true for the following
+%automorphic forms
+Let $K<G$ be a compact subgroup. $G/K$ is a symmetric space. We want to understand $\pi: G/K \to \Ga\bs G /K$. But $\Ga$ can have stabilizers when acting on $G/K$, so $G/K$ is not as nice. $G/K$ may not be a manifold. 
+
+A famous example is the modular curve.
+
+%Talk about orbifolds.
+You really need to remember the stabilizers when not working in $\Ga\bs G$. 
+\end{rem}
+We want to understand the measure structure of $\Ga\bs G$. 
+\begin{df}
+\begin{enumerate}
+\item
+$\cal F\subeq G$ is a fundamental domain for $\Ga\le G$ discrete if 
+\begin{align}
+G&=\bigsqcup_{\ga\in \Ga} \ga \cal F.
+\end{align}
+This is true iff  for all $g\in G$, $\Ga g\cap \cal F$ is a singleton, iff $\pi|_{\cal F}$ is a bijection.
+\item
+$B_{\text{inj}}\subeq G$ is an injective set for $\Ga$ if $\pi:G\to G/\Ga$ when restricted to $B_{\text{inj}}$. 
+\item
+$B_{\text{surj}}\subeq G$ is a surjective set for $\Ga$ if $\pi|_{B_{\text{surj}}}$ is surjective.
+\end{enumerate}
+\end{df}
+For example, $[0,1)^d$ is a fundamental domain for $\Z^d<\R^d$. 
+
+\begin{proof}
+An injective and surjective set always exist ($\phi$ and $G$). We claim that if $B_{\text{inj}}\sub B_{\text{surj}}$ then there exists a fundamental domain $\cal F$, $B_{\text{inj}}\subeq \cal F \subeq B_{\text{surj}}$ where $\pi|_{\cal F}$ is bi-measurable. 
+
+Bi-measurable: $\pi$ is continuous $\implies $ $\pi$ is measurable. 
+
+$G$ is s-cpct $\implies$ $G=\bigcup B_n$ where each $B_n$ is an open injectiv eball.
+
+For any $B$ Borel, $\pi(B\cap B_n)$ is measurable, $\pi(B) = \bigcup_{n\in \N} \pi(B\cap B_n)\in $ Borel $\si$-algebra.
+
+Construction of fundamental domain: 
+\begin{align}
+\cal F_0 &= B_{\text{inj}}\\
+\cal F_1 &= B_{\text{surj}} \cap B_1 \bs \Ga \cal F_0\\
+\vdots &\\
+\cal F_n &= B_{\text{surj}} \cap B_n \bs \bigcup_{k=0}^{n-1} \Ga \cal F_k.
+\end{align}
+Define $B_{\text{inj}}\subeq \cal F = \bigcup_{n=0}^\iy \cal F_n \subeq B_{\text{surj}}$. For any $\Ga g$ define $n=0$ if $\Ga g\cap B_{{\text{inj}}}$, otherwise $n$ is the minimal $k$ such that $\Ga g \cap B_{\text{surj}} \cap B_k$. Check $\Ga g\cap \cal F$ is a single element. 
+%show some fundamental domain, 
+%sometimes can construct by hand an injective/surjective domain.
+%easy to construct surjective set, know there is fundamental domain instead
+%b-chandra.
+%tamagawa number of algebraic group
+%build piece by piece
+\end{proof}
+\begin{pr}
+
+\end{pr}
+Let $m_L$ be a left $\Ga$-invariant measure on $G$. 
+\begin{enumerate}
+\item
+Any fundamental domain has the same measure: 
+For any $\cal F$, $\cal F'$ fundamental domains, $m_L(\cal F)=m_L(\cal F')$.
+\item
+Construct $m_X$ on $X=\Ga\bs G$ by 
+\begin{align}
+m_X(B) & = m_L (\pi^{-1} (B)\cap \cal F).
+\end{align}•
+This is independent of $\cal F$. 
+If $G$ is unimodular and $m_L=m$ is the Haar measure then $m_X$ is a right $G$-invariant measure on $\Ga\bs G$ and unique up to scaling.
+%traspose from G to G mod $\Ga$, which can be finite
+\end{enumerate}
+\begin{cor}
+If $B_{\text{inj}}\subeq G$ is injective, then $m_X(\pi(B_{\text{inj}}))=m_L(B_{\text{inj}})$. 
+\end{cor}
+\begin{proof}
+\begin{enumerate}
+\item
+$m_L(\cal F')= \sum_{\ga \in \Ga} m_L(\cal F' \cap \ga \cal F) = \sum_\ga m_L(\ga^{-1} \cal F'\cap \cal F) = m_L(\cal F)$.
+\item
+$m_L=m$ is right and left invariant, so
+\begin{align}
+m_X(Bg) &= m(\pi^{-1}(B) g\cap \cal F)\\
+&= m(\pi^{-1}(B)\cap \cal Fg^{-1}) = m_X(B).
+\end{align}
+%loc fin
+For uniqueness, let $\nu$ be a right $G$-invariant measure on $\Ga\bs G$. 
+Given $f\in C_c(G)$, define $f_X:\Ga \bs G\to \C$, also in $C_c(\Ga\bs G)$, by
+\begin{align}
+f_X(\Ga g) &= \sum_{\ga\in \Ga} f(\ga g).
+\end{align}
+Define a measure on $G$ by $\int_G f \,d\nu_G = \int_{\Ga\bs G} f_X\,d\nu$. It is easy to check that $\nu_G$ is right-invariant, so $\nu_G\propto m$.
+\end{enumerate}
+\end{proof}
+\begin{df}
+$\Ga\le G$ discrete is a \vocab{lattice} if $\Ga\bs G$ admits a right $G$-invariant finite (nonzero) Borel measure.
+\end{df}
+%cocompact
+\begin{rem}
+%If 
+$\Ga\bs G$ is compact iff there exists a surjective? (sinj) compact set where  a right $G$-invariant measure is always finite. We say  $\Ga$ is co-compact or uniform. 
+???
+\end{rem}
+%does group admit lattice, very difficult question. it must be unimodular
+%unimodular... does it admit lattice? No. It's not easy to find a ocxunterexample
+Does a group admit a lattice; this is a very difficult question. It must be unimodular
+Given a unimodular group, does it admit a lattice? No. It's not easy to find a ocxunterexample.
+\begin{pr}
+If $G$ admits a lattice $\Ga \subeq G$ then $G$ is unimodular.
+\end{pr}
+%geo structure with huge isometry group
+%tree bad example %quotient into finite regular graph.
+\begin{thm}[Poincar\'e recurrence]
+Let $(X,\cal B, \mu)$ be a probability measure space and $T:X\to X$ be a measurable measure-preserving transformation (for all $B\in \cal B, \mu(T^{-1}B) = \mu(B)$). 
+%covering space. 
+If $\mu(A)>0$ then for $\mu$ a.e., $x\in A$, there exists $h_k\to \iy$ such that $T^{h_k}x\in A$. 
+%closed interval, no cut
+\end{thm}
+Proof: exercise.
+\begin{proof}[Proof of Proposition]
+A measure $m_X$ on $\Ga\bs G$ is right-invariant using folding we get $\mu$ on $G$ which is $G$-right invariant and $\Ga$-left invariant,
+\begin{align}
+\mu(f) &= m_X(\sum_{\ga\in \Ga}  f(\ga g)).
+\end{align}
+$(g.\mu)(B) = \mu(g^{-1}B)$ is a right Haar measure, $\mu(g^{-1}B)=\chi(g) \mu(B)$, where $\chi:G\to \R_{>0}$. It is straightforward to check that $\chi$ is a character, a continuous group homomorphism and $\Ga < \ker \chi$. Fix $g\in G$, we want to show $\chi(g)=1$. %power bounded.
+We will prove there exists $n_k\to \iy$ such that $|\chi(g)|^{n_k}\ll 1$ (i.e. $\le C$ a constant). 
+
+Look at $(\Ga \bs G, \cal B, m_X)$, $T(h)=hg^{-1}$. By Poncar\'e rec, for all $0<r<r_{\text{inj}}(\Ga e)$, there exists $n_k\to \iy$, $\ga_k\in \Ga$, $h,h_k\in B_e(r)$ such that 
+\begin{align}
+\ga_k h g^{-n_k} &= h_k\\
+%stuck inside cpt set
+\chi(g)^{-n_k} &= \chi(h^{-1} h_k) \in \chi(B_{2r}(e)).
+\end{align}•
+\end{proof}
+This is a recurrent pattern. Ergodic theory is often useful. In order to prove something you need a single point which satisfies conditions. Generate some point about which you know nothing and show everything trivializes.

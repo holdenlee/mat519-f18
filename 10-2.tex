@@ -1,0 +1,259 @@
+\blu{10-2}
+
+%10/19, 11-1
+
+Mixing implies ergodicity, but the converse is false: irrational rotation on torus is ergodic but not mixing.
+
+Today we prove this theorem.
+\begin{thm}\label{thm:mix-hor}
+Let $\Ga\le G$ be a lattice, $a\in G$ such that $G=\an{G_a^-,G_a^+}$. Assume $a\cir \Ga \bs G$ is mixing for the Haar measure and that $\Ga \bs G$ is compact. Then the Haar measure $m$ is the unique $G_a^-$-invariant measure on $\Ga\bs G$.
+\end{thm}
+For $\SL_2(\R)$ take $a$ to be the diagonal matrix, so $G_a^-$ is the group of unipotent matrices. Every diagonal matrix acts mixingly on $\Ga\bs \SL_n(\R)$.  
+
+%This is a statement about the horospherical orbit of every point. %, but $a\cir \Ga\bs G$ is a statement about every point. 
+The rate of mixing is exponential.
+
+Recall that $a\cir \Ga \bs G$ is mixing for the Haar measure if for all $f,g\in L^2(\Ga \bs G, m)$, 
+\begin{align}
+\an{a^n f,g} &\to \int f \int g
+\end{align}•
+for $n\to \iy$. Recall that $G>G_a^- = \set{a\in G}{\limn a^n ua^{-n}=e}$.
+
+We will establish something much stronger, when $\Ga\bs G$ is noncompact. We will characterize all invariant measures. For each point, describe orbit closure of horospherical orbit. 
+%equidist of nonhoro groups - more powerful
+
+Note $a^{-1}$ also acts mixing. Thus the theorem is true for both $G_a^-$ and $G_a^+$.
+
+%If the group $G$ is abelian
+I'll talk about conditional expectation, a simple operator often forgotten by people who don't do probability.
+
+\begin{df}
+Let $(X,\cal A, \mu)$ be a probability space and $\cal B\subeq \cal A$ be a sub-$\si$-algebra. 
+%sub-$\si$-algebra
+%define only functions meas wrt $\cal A$. 
+(To be measurable with a smaller class is a more restrictive condition. If we have $(X,\cal, \mu)\xra{\pi} (Y,\cal Y)$ we can push-forward and pull-back. Pull-back gives a sub-$\si$-algebra. When is a function measurable with respect to it? $f$ is measurable with respect to $\pi^{-1}(\cal Y)$ iff there exists measurable $f':Y\to \C$ such that $f =\pi \circ f'$. All probability theory is encoded in $\si$-algebra; points are meaningless.)
+\begin{align}
+\xymatrix{
+& (X,\cal A, \mu)\ar[d]^{\pi}\ar[ld] \\
+\C & \ar[l] (Y, \cal Y).
+}
+\end{align}
+Then there is a unique linear operator of norm one
+\begin{align}
+\E (\bullet | \cal B) :&= L^1(X,\cal A, \mu) \to L^1(X, \cal B, \mu)
+\end{align}
+such that the following property is satisfied:
+\begin{align}
+\forall B&\in \cal B: & 
+\int_B f\,d\mu &= \int_B \E[f|\cal B]\,d\mu.
+\end{align}•
+\end{df}
+\begin{ex}
+\begin{enumerate}
+\item
+If $\cal B=\{\phi,X\}$, then $\E[f|\cal B]$ is the constant function equal to the integral:
+\begin{align}
+\E[f|\cal B] &= \int f\,d\mu.
+\end{align}
+\item
+If $\cal B=\cal A$, then $f\mapsto \E[f|\cal B]$ is the identity operator:
+\begin{align}
+\E[f|\cal B]&=f.
+\end{align}
+%no sense of defining
+\item
+Consider the unit square. Let $X=[0,1]^2$ and $m$ be the Lebesgue measure. Let $\cal B$ be the Borel $\si$-algebra. Let $Y=[0,1]$. 
+Then $\pi(x,y) = x$ and 
+\begin{align}
+\cal B &= \pi^{-1}\pat{Borel $\si$ algebra on $[0,1]$}\\
+&= \cal B_{[0,1]} \times \{\phi,[0,1]\}.
+\end{align}
+$\E[f|\cal B]$ must be constant on $y$-fibers, so
+\begin{align}
+\E[f|\cal B] (x,y) &= \int_0^1 f(x,z)\,dz
+\end{align}
+There is something interesting going on because it's an integral over a set of measure 0 in the original measure.
+
+(You can think of the integral as the limit over a set shrinking to a set of measure 0.)
+\end{enumerate}
+\end{ex}
+
+
+The construction is as follows. 
+\begin{enumerate}
+\item
+$\E[\bullet | \cal B]: L^2(X,\cal A, \mu) \to L^2(X,\cal B, \mu)$  can be defined as the orthogonal projection on $L^2(X,\cal B, \mu)<L^2(X, \cal A, \mu)$ (a closed subspace).
+\item
+To construct on $L^1$, we can either use some completion argument, or use the Radon-Nikodym derivative,
+\begin{align}
+\E [f|\cal B] &= \fc{(f\,d\mu)_{\cal B}}{(d\mu)_{\cal B}}.
+\end{align}•
+%pi was gadget to construct interesting sub-algebras.
+\end{enumerate}•
+\begin{pr}
+\begin{enumerate}
+\item
+$\E[\bullet|\cal B]$ is a linear operator of norm 1.
+\item
+$\forall g\in L^\iy(X, \cal B,\mu)$, $\E[fg|\cal B] = g\E[f|\cal B]$. 
+%it's not multiplicative otherwise, in any sense.
+\item
+If $\cal B'\subeq \cal B$ is a sub-$\si$-algebra, then 
+\begin{align}
+\E[\E[\bullet |\cal B]|\cal B']&= \E[\bullet |\cal B'].
+\end{align}
+\item
+$\E[\bullet |\cal B]$ is positive: if $f\ge 0$ then $\E[\bullet |\cal B]\ge 0$. 
+\item
+If $f\in L^1(X,\cal B,\mu)$ then $\E[f|\cal B]=f$.
+\item
+(Triangle inequality)
+$|\E[f|\cal B]|\le \E[|f||\cal B]$.
+\end{enumerate}•
+\end{pr}
+
+Let's say $G\cir (X,\cal A, \mu)$. Then we can define $\cal E\subeq \cal A$ as the sub-$\si$-algebra of $G$-invariant sets. 
+
+\newcommand{\ewrt}[1]{\stackrel{#1}{\equiv}}
+
+We say that $\cal B_1,\cal  B_2\subeq \cal A$ are equivalent up to $\mu$, $\cal B_1\ewrt{\mu}$ if for all $B\in \cal B_i$, there exists $B'\in \cal B_j$ ($i\ne j$) such that $\mu(B\triangle B')=0$. Then $G\cir (X,\mu)$ is ergodic iff
+\begin{align}
+\cal E \ewrt{\mu} \{\phi,X\}.
+\end{align}
+\begin{thm}[Ergodic theorem]
+Let $G=\R^d$, $\Z^d\cir (X,\mu)$. Fix $f\in L^1(X,\mu)$. Then 
+\begin{enumerate}
+\item
+For $G=\R^d$, $d\Vol(g)$ the Haar measure on $\R^d$,
+\begin{align}
+\rc{\Vol(B_0(r))} \int_{B_0(r)} 
+f(g,x) \,d\Vol(g)
+&\xra{r\to \iy} \E[f|\cal E](x). 
+\end{align}
+\item
+For $G=\Z$, 
+\begin{align}
+\rc N \sumz n{N-1} f(g^n.x) \xra{N\to \iy} \E[f|\cal E](x)
+\end{align}
+where the convergence is in $L^1$ and $\mu$-a.e.
+%almost every point converges
+\end{enumerate}
+\end{thm}
+In many cases it's nontrivial that there even exists 1 point where we have converges. If the function is ergodic, then we just get the integral over the whole space. 
+
+It is easy to see that if $G$ converges, then $\E[f|\cal E]$ is the only possible limit, by Fubini's Theorem.
+
+\begin{rem}
+\begin{enumerate}
+\item
+For $B_0(r)$ one can take balls with respect to any norm on $\R^d$. 
+\item
+The set of points where the ergodic theorem holds depends on $f$.  This is important!
+\end{enumerate}
+\end{rem}
+$f$ doesn't have to be continuous, just measurable. We often apply to continuous functions.
+%Ex. consider totally discontinuous groups
+%average over piece of $g$-orbit.
+%average something very singular wrt whole space.
+
+$G$ must at least be amenable. Ergodic theory is geometric property of the group and not the action. Roughly, $\R^d$ being amenable means the following. In $\R^d$, if you take 2 consecutive balls of close enough radius, the difference in the volume between them is small compared to each one of them. You can choose a sequence of balls such that the difference between consecutive sets has small volume. You can cover the group with sets with small boundary. (This is not true for free groups. Another example is $\SL_2(\R)$. Act on the projective space in measure-preserving way. There is no ergodic theorem. There's a big tree/free group standing in $\SL_2(\R)$. Hyperbolic spaces are similar to trees. Amenability is specific to some groups.)
+%The most general ergodic theorem is the Ph.D. thesis of Alon (?)
+
+I want to connect the threads. %We aim to prove that if we have $g$-invariant measure... horospherical 
+%if no example in life where g acting mixingly, it's completely use
+
+%2 proofs. not difficult, but nontrivial.
+
+In order for Theorem~\ref{thm:mix-hor} to be non-vacuous, we need group elements in $\Ga\bs G$ to be mixing in the Haar measure. This is closely related to representation theory. Spectral properties of unitary representation. 
+
+\subsection{Mautner phenomenon}
+
+\begin{lem}
+Let $G\to \cal U(H)$ be a unitary representation on a Hilbert space $H_0$. Fix $L\le G$ a subgroup and assume $v_0\in H$ is $L$-invariant. 
+
+Then if $G\ni g_n\to e$ as $n\to \iy$, $\{\ell_n\},\{\ell_n'\}\subeq L$ such that $\ell_ng_n\ell_n'\xra{n\to \iy} h\in G$, then $h. v_0=v_0$.
+\end{lem}
+
+% >2 seq not intuitive
+Usualy we apply this to conjugation by a power.
+%conjugate grow or decay, move element along sequence to compensate
+
+\begin{proof}
+\begin{align}
+\ve{h.v_0-v_0}
+&= \limn \ve{\ell_n g_n\ell_n' . v_0-v_0}
+=\limn \ve{\ell_n g_n.v_0 - v_0}\\
+&=
+\limn{g_n.v_0-\ell_n^{-1}.v_0} =  \limn \ve{g_n.v_0-v_0}=0
+\end{align}
+because $g_n\to e$. 
+%$\ell_n^{-1}$
+%when element of g, space cannot be mixing, if generate bounded subgroup.
+%powers will come back to some element.
+%limit properties of unbounded group.
+\end{proof}
+If $g$ generates a bounded subgroup, the action of $g$ cannot be mixing.
+%abel subgroup should be unbounded.
+
+\begin{lem}[Mautner phenomenon for $\SL_2(\R)$]
+For every $g\in \SL_2(\R)$, either $g$ or $-g$ is conjugate to a matrix from $A^+$, $N$ or $K$, dependin on whether $|\Tr g|>2$, $|\Tr g|=2$, or $|\Tr g|<2$.
+\end{lem}
+%$A_1^
+(A matrix with 2 real eigenvalues is conjugate to a diagonal matrix.)
+
+\begin{thm}
+Let $G=\SL_2(\R)\to \cal U(H)$. Fix $g\in G$, with powers unbounded. If $v_0\in H$ satisfies $g.v_0=v_0$, then $G.v_0=v_0$.
+\end{thm}
+\begin{cor}
+For any lattice $\Ga< G=\SL_2(\R)$, the action of $g\cir (\Ga\bs G, m)$ is ergodic.
+\end{cor}
+%abstract statement of fact. unbded group element acts ergly with haar measure.
+\begin{proof}
+We can conjugate $g$ to be diagonal (in $A^+$) or unipotent (in $N$). 
+\begin{enumerate}
+\item
+Let $g=\smatt{\la}{}{}{\la^{-1}}\in A^+$, WLOG $\la>0$.  We apply the lemma for all $t\in \R$
+\begin{align}
+a^n\matt{1}{\fc{t}{\la^{2n}}}{0}{1} a^{-n}
+&= \matt 1t01\\
+\ell_n&=a_n,\,\ell_n'=a^{-n},\, L=\an{a}\\
+e_n\lar g_n &=\matt{1}{\fc{t}{\la^{2n}}}{0}{1}.
+\end{align}
+The lemma implies that $k$ is $\matt 1t01$-invariant for every $t\in \R$. Similar calculations show that it is $\matt 10t1$-invariant.
+\item
+%simpler than argument in book
+Let $g=u=\matt 1t01$. Let $\la_n\to 1$. 
+\begin{align}
+u^n \ub{\matt{\la_n}{}{}{\la_n^{-1}}}{g_n} u^{-n}
+&=g_n.(g_n^{-1}u^n g_n) . u^{-n}\\
+&= g_n \matt{1}{nt\la_n^{-2}-nt}01 = \matt{\la_n}{\la_n(nt\la_n^{-2} - nt)}{}{\la_n^{-1}}
+\end{align}
+we want $\la_n\to 1$ and $nt\pa{\rc{\la_n^2}-1}\xra{n\to \iy} s$, $0\ne s\in \R$. 
+A good choice for $\la_n$ is
+\begin{align}
+\la_n^{-2} &= 1+\fc{s}{nt}\\
+\Leftarrow \la_n&= \rc{\sqrt{1+\fc{s}{nt}}}\xra{n\to \iy} 1. 
+\end{align}
+This is a good choice for the lemma. We know that $v_0$ is $U^+=\matt 1*01$. 
+
+Set $H>H_0=\set{v\in H}{U^+.v=v}$, a closed subspace. We know $v_0\in H_0$. For all $u,v\in H_0$, define $f:G\to \C$ continuous by $f(g)=\an{g.v_1,v_2}$. 
+%quite fun, invar under L and R
+
+$f$ is a continuous function on $U^+\bs G/U^+$, iff $f$ is $U^+$-invariant function on $G/U^+$. Let $G=\SL_2(\R)$ act transitively on $\R^2\bs 0$. The stabilizer of $\coltwo 10$ is $U^+$.
+So $G/U^+\cong \R^2\bs 0$, $f$ is a $U^+$-invariant function on $\R^2\bs 0$. 
+
+(The $x$-axis moves nowhere. Any other axis moves with some speed. The function is constant on horizontal lines. This means it must be continuous on the $x$-axis too by continuity.) %for each 2 point, you can make them as close as you wish.
+
+A continuous $U^+$-function on $\R^2\bs 0$ must be constant on the $x$-axis.
+%But translated back, %by diag matrix
+So $f$ is constant on $A$, %geometrification
+which implies that for all $v_1,v_2\in H_0$, $\an{a.v_1,v_2}=\an{v_1,v_2}$, or equivalently for all $a\in A$, $\an{a.v_1-v_1,v_2}=0$. So $a.v_1=v_1$.
+\end{enumerate}•
+\end{proof}
+
+
+
+
+
+
+
