@@ -1,6 +1,6 @@
 \fixme{Correction from last time: local-global: $Q'$ represents $Q$, $\min_{\Z^n\bs \{0\}} Q'\ge C(Q)$, not effective (?).}
 
-\subsection{Haar measures}
+\section{Haar measures}
 
 Let $G$ be a locally compact group. There exists a right-invariance Borel measure $m\ne 0$ on $G$: for all $B$ Borel, $g\in G$, $m_R(Bg)=m_R(B)$. This measure is unique up to scaling. We can define a left-invariant measure by $m_L(B) = m_R(B^{-1})$. 
 
@@ -54,7 +54,7 @@ Prove the same using Pontryagin duality: $\wh G=\set{\chi}{G\to \bS^n}$ separate
 %NT solve something specific
 %do once and forget about it
 \end{exr}
-Let $G$ be a locally compact %s-cpct 
+Let $G$ be a locally compact $\si$-compact 
 group equipped with a left-invariant metric $d_G:G\times G\to \R_{\ge 0}$:
 %lie group, fav product on lie algebra, move around , riemann metric
 For all $h,g_1,g_2\in G$, $d(hg_1,hg_2)=d(g_1,g_2)=d(g_2^{-n}g_1,e)$. ($d_G$ exists always, if $G$ has countable %$\aleph_0$-
@@ -62,9 +62,11 @@ basis.)
 \begin{df}
 Let $H\le G$ be a closed subgroup. Define $d_{H\bs G}:H\bs G\times H\bs G\to \R$ by $d(Hg_1,Hg_2) = \inf_{h_1,h_2\in H} d(h_1g,h_2g) = \inf_{h\in H} d(hg_1,g_2)$. 
 \end{df}
-Check that $d_{G/H}$ is  a metric, $G/H$ is a locally compact s-cpct space, $G$ and $G/H$ metr complete, $d_{H\bs G}$ induces the quotient topology on $G/H$.
+Check that $d_{G/H}$ is  a metric, $G/H$ is a locally compact $\si$-compact space, $G$ and $G/H$ metrically complete, $d_{H\bs G}$ induces the quotient topology on $G/H$.
 %complete
 Comment: If $d_G$ is proper (closure of open ball is a closed ball) and $H=\Ga < G$ is discrete then the inf is realized.
+
+\section{Radius of injectivity}
 
 %proj map is local isometry
 Assume $\Ga < G$ is discrete. 
@@ -123,18 +125,20 @@ A famous example is the modular curve.
 You really need to remember the stabilizers when not working in $\Ga\bs G$. 
 \end{rem}
 We want to understand the measure structure of $\Ga\bs G$. 
+
+\section{Fundamental domains}
 \begin{df}
 \begin{enumerate}
 \item
-$\cal F\subeq G$ is a fundamental domain for $\Ga\le G$ discrete if 
+$\cal F\subeq G$ is a \vocab{fundamental domain} for $\Ga\le G$ discrete if 
 \begin{align}
 G&=\bigsqcup_{\ga\in \Ga} \ga \cal F.
 \end{align}
 This is true iff  for all $g\in G$, $\Ga g\cap \cal F$ is a singleton, iff $\pi|_{\cal F}$ is a bijection.
 \item
-$B_{\text{inj}}\subeq G$ is an injective set for $\Ga$ if $\pi:G\to G/\Ga$ when restricted to $B_{\text{inj}}$. 
+$B_{\text{inj}}\subeq G$ is an \vocab{injective set} for $\Ga$ if $\pi:G\to G/\Ga$ when restricted to $B_{\text{inj}}$. 
 \item
-$B_{\text{surj}}\subeq G$ is a surjective set for $\Ga$ if $\pi|_{B_{\text{surj}}}$ is surjective.
+$B_{\text{surj}}\subeq G$ is a \vocab{surjective set} for $\Ga$ if $\pi|_{B_{\text{surj}}}$ is surjective.
 \end{enumerate}
 \end{df}
 For example, $[0,1)^d$ is a fundamental domain for $\Z^d<\R^d$. 
@@ -144,7 +148,7 @@ An injective and surjective set always exist ($\phi$ and $G$). We claim that if 
 
 Bi-measurable: $\pi$ is continuous $\implies $ $\pi$ is measurable. 
 
-$G$ is s-cpct $\implies$ $G=\bigcup B_n$ where each $B_n$ is an open injectiv eball.
+$G$ is $\si$-compact $\implies$ $G=\bigcup B_n$ where each $B_n$ is an open injectiv eball.
 
 For any $B$ Borel, $\pi(B\cap B_n)$ is measurable, $\pi(B) = \bigcup_{n\in \N} \pi(B\cap B_n)\in $ Borel $\si$-algebra.
 
@@ -202,6 +206,7 @@ f_X(\Ga g) &= \sum_{\ga\in \Ga} f(\ga g).
 Define a measure on $G$ by $\int_G f \,d\nu_G = \int_{\Ga\bs G} f_X\,d\nu$. It is easy to check that $\nu_G$ is right-invariant, so $\nu_G\propto m$.
 \end{enumerate}
 \end{proof}
+\section{Lattices}
 \begin{df}
 $\Ga\le G$ discrete is a \vocab{lattice} if $\Ga\bs G$ admits a right $G$-invariant finite (nonzero) Borel measure.
 \end{df}

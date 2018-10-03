@@ -1,7 +1,7 @@
 \blu{10-2}
 
 %10/19, 11-1
-
+\section{Conditional expectation and the ergodic theorem}
 Mixing implies ergodicity, but the converse is false: irrational rotation on torus is ergodic but not mixing.
 
 Today we prove this theorem.
@@ -26,6 +26,8 @@ Note $a^{-1}$ also acts mixing. Thus the theorem is true for both $G_a^-$ and $G
 
 %If the group $G$ is abelian
 I'll talk about conditional expectation, a simple operator often forgotten by people who don't do probability.
+
+
 
 \begin{df}
 Let $(X,\cal A, \mu)$ be a probability space and $\cal B\subeq \cal A$ be a sub-$\si$-algebra. 
@@ -166,7 +168,7 @@ I want to connect the threads. %We aim to prove that if we have $g$-invariant me
 
 In order for Theorem~\ref{thm:mix-hor} to be non-vacuous, we need group elements in $\Ga\bs G$ to be mixing in the Haar measure. This is closely related to representation theory. Spectral properties of unitary representation. 
 
-\subsection{Mautner phenomenon}
+\section{Mautner phenomenon}
 
 \begin{lem}
 Let $G\to \cal U(H)$ be a unitary representation on a Hilbert space $H_0$. Fix $L\le G$ a subgroup and assume $v_0\in H$ is $L$-invariant. 
@@ -250,7 +252,15 @@ So $f$ is constant on $A$, %geometrification
 which implies that for all $v_1,v_2\in H_0$, $\an{a.v_1,v_2}=\an{v_1,v_2}$, or equivalently for all $a\in A$, $\an{a.v_1-v_1,v_2}=0$. So $a.v_1=v_1$.
 \end{enumerate}•
 \end{proof}
-
+\begin{exr}
+Prove the analogous statement for $\SL_2(\Q_p)$: 
+\begin{itemize}
+\item
+If $g$ is conjugate to a diagonal matrix then the same result holds. 
+\item
+The unipotent case is different because no unipotent element can generate an unbounded group ($\matt 1{t\in \Z}01$ is bounded in $\Q_p$). Here the analogous statement is: every $v_0\in H$ invariant under a 1-parameter unipotent subgroup $\bc{\matt 1{t\in \Q_p}01}$ is $G$-invariant. 
+\end{itemize}•
+\end{exr}
 
 
 
