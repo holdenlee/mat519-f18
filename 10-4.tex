@@ -1,0 +1,168 @@
+%diagonal, unipotent cases
+\blu{10-4}
+
+Recap: There exists $u\in U$, $u.v_0=v_0$. Then $U.v_0=v_0$. Let $H_0<H$ be the subspace of $U$-invariant vectors. For $v_1,v_2\in H_0$, consider $f(g) = \an{g.v_1,v_2}$, $f:U\bs G/U\to \C$ continuous. Then $G/U\cong \R^2\bs 0$, and $f$ is a function on the punctured plane, $f:\R^2\bs 0 \to \C$. 
+%Consider $V\mapsto \smatt 1t01 V$. 
+%corresp to diag subgroup. 
+%unif cont
+The function must be constant on the diagonal subgroup: for all $a\in A^+$, $\an{a.v_1,v_2}=\an{v_1,v_2}$. So $a.v_1=v_1$. 
+
+%structure of linear groups
+\begin{df}
+Let $R$ be a commutative ring. Then a linear algebraic group $\G$ defined over $R$ is a functor $\text{Alg}_R\to \text{Grp}$ (i.e., if $A/R$ algebra, $\mathbb G(A)$ is a group) such that there is an ideal $I\subeq R[t_{ij}]_{1\le i,j\le n}$ such that there is an ideal $I\subeq R[t_{ij}]_{1\le i,j\le n}$ so $\G(A) = \set{g\in \SL_n(A)}{p(g)=0\,\forall p\in I}$. 
+\end{df}
+\begin{ex}
+Examples include $\SL_d$, $\GL_d$, $\PGL_d(A) = Z_{\GL_d}(A)\bs \GL_d(A)$. 
+%d^2
+%another way algebraic group, GIT
+To see $\GL_d$ is an algebraic group, consider $\GL_d\hra \SL_{d+1}$ by adding a diagonal entry $\det(A)^{-1}$. 
+To see $\PGL_d$ is an algebraic group, take $\PGL_d\hra \GL(\cal M_{d\times d})$ acting by conjugation. 
+
+For $Q$ a quadratic form over $R$, $O(Q)$ and $\SO(Q)$ are algebraic groups (linear transformations preserving $Q$, and those with determinant 1). 
+
+Also, $\G_a(A)=(A,+)$ and $\G_m(A)=\set{\matt{a}{}{}{a^{-1}}}{a\in A^+}$ are linear algebraic groups. 
+
+Also, $\SL_2\ltimes \G_a^2$ given by $\mattn g{}v{}{}{\vdots}001$. 
+\end{ex}
+\begin{df}
+Let $\G/\R$ is a linear algebraic group, and $A/R$ an algebra. 
+\begin{enumerate}
+\item
+$g\in \G(A)$ is \vocab{diagonal} over $A$ if $g\in \G(A)\hra \SL_n(A)$ is conjugate in $\SL_n(A)$ to a diagonal matrix. 
+Let $g\in\G(A)$ is \vocab{semisimple} if it is diagonalizable in $\G(B)$ for $B/A$. (If $A$ is a field, it is enough to check the algebraic closure$B=A^{\text{alg}}$.)\footnote{This has nothing to do with elements being semisimple.}
+\item
+$g\in \G(A)$ is \vocab{unipotent} if $g-e$ is nilpotent in $\cal M_{n\times n}(A)$, $G\hra \SL_n\hra \cal M_{n\times n}$. 
+\end{enumerate}
+%huge matrix algebra
+%center cannot contain connected group, because normal. disconnect infinite can't happen
+\end{df}
+\begin{df}
+Let $G=\G(\R)$, and $\G$ be a linear algebraic group over $\R$. Then $G$ is a \vocab{simple Lie group} if it is non-abelian and has no non-trivial connected closed normal subgroups.
+\end{df}
+\begin{rem}
+$G$ has a finite center because it is linear. The fundamental group of $\SL_2(\R)$ is $\Z$. 
+%orth groups in $\SL_d$.
+\end{rem}
+%collection of examples. develop uniform theory.
+\begin{df}
+ $G=\G(\R)$, % $\G/\R$
+is a \vocab{semi-simple} linear group  if there 
+exists $G_1,\ldots, G_r\triangleleft G$ connected normal subgroups, pairwise commuting $[G_i,G_j]=e$, $G=G_1\cdot \cdots \cdot G_r$, and the homomorphism
+\begin{align}
+\ph:G_1\times \cdots \times G_r &\to G
+\end{align}
+has kernel $\ker \ph$ that is a finite central group, and each $G_i$ is simple. 
+%almost product of simples
+%semistable
+\end{df}
+
+\subsection{Mautner phenomenon for simple Lie groups}
+
+\begin{thm}
+Let $G=\G(\R)$ be a simple linear Lie group and $g\in G$ such $g^n\to \iy$. Let $G\to \cal U(H)$ and $v_0\in H$ be $g$-invariant. Then $G.v_0=v_0$. 
+\end{thm}
+\begin{proof}[Proof sketch.]
+\begin{enumerate}
+\item
+Using the Jordan normal form, reduce to the case that either $g$ is semi-simple or unipotent.
+%power-unbounded, cannot have all eigval abs 1
+%group semisimple and elements semisimple
+%not ss, is unipotent?
+%product of semisimple and unipotent. 
+%in SL_d, actually belong to G.
+\item
+If $g=a$ is semi-simple, 
+%torus is group, alg closure is conjugate to diagonal group
+then $v_0$ is invariant under $G_a^-$ and $G_a^+$, and $\an{G_a^-, G_a^+, a}=G$. 
+For $u\in G_0$, $a^n ua^{-n}\to e$, 
+\begin{align}
+\ve{u.v_0-v_0} &= 
+\ve{a^n u a^{-n}.v_0-v_0} \xra{n\to \iy}0.
+\end{align}
+\item
+The Jacobson-Morozov Theorem says that if $g=n\in G$ is unipotent, then there is a homomorphism $\ph:\SL_2(\R)\to G$, such that $\ph\pa{\matt 1101}=n$. 
+%For $\SL_n$, conj to diagonal matrix, and check it for diag.
+%stable under diagonal element, 
+The $\SL_2(\R)$ case implies that $v_0$ is invariant under a diagonal element. 
+\end{enumerate}
+\end{proof}
+\begin{cor}
+If $\Ga< G$ is a lattice, and $G$ is as above, $g\in G$ with $g^n\to \iy$, then $g\cir (\Ga\bs G, m)$ is ergodic. %(Here $G\cir (\Ga\bs G, m)$ gives a map $G\to \cal U(L^2(\Ga\bs G,m))$.)
+\end{cor}
+\begin{thm}[Howe-Moore]
+Let $G=\G(\R)$ be semisimple, $G\to \cal U(H)$. Fix $\{g_n\}\sub G$.  If either
+\begin{enumerate}
+\item 
+%decomp into compact factors
+$G=G_1\cdots G_r$, where $G_i$ are the simple factors, and %Assume 
+for any non-compact $G_i$ there is no non-nontrivial fixed vector in $H$ and $g_n\to \iy$. 
+%each noncompact factor acts ergodically.
+\item
+$g_n=g_n^{(1)}\cdots g_n^{(r)}$; for all $i$, $g_n^{(i)}\in G_i$ and assume $g_n^{(i)}\to \iy$ for every $G_i$ non-compact. Let $G_d=\prod_{G_i\text{ non-compact}}\triangleleft G$. Assume there is no non-trivial $G_d$-fixed vector. 
+%one cond about seq, go to infinity
+%lack of fixed vectors
+\end{enumerate}
+Then for all $v_1,v_2\in H$, $\an{g_n.v_1,v_2}\to \iy$ as $n\to \iy$. 
+\end{thm}
+In each option there are 2 conditions: one about the sequence going to $\iy$, and one about the lack of fixed vectors. 
+
+The proof requires the use of the Cartan decomposition. 
+\begin{proof}
+Any simple %... 
+Lie group $M$ over $\R$  has a Cartan decomposition: $M=KAK$, where $K<M$ is a compact group, and $A<M$ is a commutative group of diagonal matrices over $\R$.  (The Cartan decomposition is useful because it takes the compact parts out, isolating the noncompact part out in $A$.)
+
+$M$ also has an Iwasawa decomposition, $M=NAK$, where $N$ is $A$-normalized and conjugate to a subgroup of upper triangular matrices with 1's on the diagonal. 
+%iwasawa decompostion
+
+Our goal is to show $\an{g_n.v_1,v_2}\to 0$. It is enough to show that there exists $n_k\to \iy$ such that $\an{g_{n_k}.v_1,v_2}\to 0$. (If not, find a subsequence that converges to something that is not 0, $\an{g_{n_k}.v_1,v_2}\to c$. It still satisfies the assumption. The argument says that there is a subsequence of that sequence that goes to 0, contradiction.)
+%g_{n_{k_l}}
+
+Write the Cartan decomposition $g_n=k_na_nk_n'$. By going to a subsequence assume $k_n\to k$, $k_n'\to k'$. 
+%reduce statement to statement about $n$'s. 
+%just Cauchy-Schwarz.
+
+%get compact parts out, isolate the noncompact part out along $A$.
+
+By Cauchy-Schwarz and unitarity,
+\begin{align}
+\ab{
+\an{k_na_nk_n'.v_1,v_2} - \an{ka_n k'.v_n,  v_2}
+}
+&\le \ab{
+\an{a_n k_n'.v_1, k_n^{-1}.v_2} - \an{a_nk'.v_1, k^{-1}.v_2}
+}
+\xra{n\to \iy}0.
+\end{align}
+For all $n$, $\ve{a_n.v_1}=\ve{v_1}$. 
+%hilb space of inf-dim 
+
+This sits in the unit ball in an infinite-dimensional Hilbert space, which is not compact, but is compact in weak-$*$ topology.
+
+The Banach-Alaoglu Theorem says: if $w_n\in H$ is a sequence of vectors with $\ve{w_n}<1$,  then there exists $n_k\to \iy$ , $w^*\in H$ such that for any $v\in H$, $\an{w_{n_k},v}\to \an{w^*,v}$.
+%effective, rate of convergence, can't, because take limit in weird way
+%This uses the Axiom of Choice, it requires modification to make effective.
+
+Passing to a subsequence, $a_{n_k} . v_1\xra{w-*} v^*$. For all $v_2$, $\an{a_n. v_1,v_2}\to \an{v^*, v_2}$. 
+
+We need to show that $v^*=0$. We will show that $v^*$ is invariant under either all $G$-noncompact or $G_d$. 
+
+%more difficult, unipot part of Mautner
+The Mautner phenomenon implies that it is enough to find, for all $i$ such that $G_i$ is non-compact, some non-trivial unipotent $u_i\in G_i$ such that $U_i.v^*=v^*$. 
+Decompase $a_n$ by semi-simple factors, $a_n=a_n^{(1)}\cdots a_n^{(r)}$. The $a_n^i\to \iy$ then use Iwasawa decompostion to find $u_i\in G_i$ such that $a_n^{(i-1)}u_i q_n^{(i)}\xra{n\to \iy}e$ for a subsequence and then 
+\begin{align}
+\ve{u_i.v^* - v^*}_2=\limn
+\ve{a_n^{(i-1)}u_i a_n^{(i)}.v_1 - v_1}_2 =
+\limn
+\ve{u_i a_n^{(i)}.v_1 -a_n^i. v_1}_2 =0. 
+\end{align}
+%one of them is power-unbounded
+%approx along some line
+%some contracted by other vectors...
+\end{proof}
+%reduce to diagonal case
+%diagonal case, take weak limit.
+%enough to show invariant under every noncompact simple factor
+
+%next: equidist theorem
+
+%cannot be made effective for SL_2(\R). 
